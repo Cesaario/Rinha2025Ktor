@@ -1,20 +1,20 @@
 package app.cesario
 
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.serialization.kotlinx.json.json
+import app.cesario.dto.PaymentRequest
+import app.cesario.services.PaymentService
 import io.ktor.server.application.*
+import io.ktor.server.request.receive
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Application.configureRouting() {
-    val apiService = ExampleService()
+    val apiService = PaymentService()
 
     routing {
         post("/payments") {
-            val todo = apiService.getTodo()
-            call.respond(todo)
+            val request = call.receive<PaymentRequest>()
+            val response = apiService.processPayment(request)
+            call.respond(response)
         }
     }
 }
