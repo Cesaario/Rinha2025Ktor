@@ -3,4 +3,4 @@ ktor:
         modules:
             - app.cesario.ApplicationKt.module
     deployment:
-        port: 8080
+        port: 9999
