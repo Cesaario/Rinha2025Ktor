@@ -1,11 +1,9 @@
 package app.cesario.services
 
 import app.cesario.dto.PaymentProcessRequest
-import app.cesario.dto.PaymentProcessResponse
 import app.cesario.dto.PaymentRequest
 import app.cesario.dto.ProcessedPayment
 import io.ktor.client.HttpClient
-import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.post
@@ -16,7 +14,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import java.time.OffsetDateTime
 
-class PaymentService {
+object PaymentService {
 
     private val client = HttpClient(CIO) {
         install(ContentNegotiation) {
@@ -27,8 +25,9 @@ class PaymentService {
     }
 
     suspend fun processPayment(paymentRequest: PaymentRequest, service: PaymentProcessorService): ProcessedPayment? {
+        val now = OffsetDateTime.now()
         val payload =
-            PaymentProcessRequest(paymentRequest.correlationId, paymentRequest.amount, OffsetDateTime.now().toString())
+            PaymentProcessRequest(paymentRequest.correlationId, paymentRequest.amount, now.toString())
 
         try {
             client.post("${service.url}/payments") {
@@ -39,7 +38,8 @@ class PaymentService {
             return ProcessedPayment(
                 payload.correlationId,
                 payload.amount,
-                payload.requestedAt
+                now.toInstant().toEpochMilli(),
+                service
             )
         } catch (e: Exception) {
             return null
@@ -47,7 +47,7 @@ class PaymentService {
     }
 
     enum class PaymentProcessorService {
-        MAIN("http://localhost:8001"),
+        DEFAULT("http://localhost:8001"),
         FALLBACK("http://localhost:8002");
 
         val url: String

@@ -19,24 +19,21 @@ fun main(args: Array<String>) {
 fun Application.module() {
     log.info("Starting Ktor application :D")
 
-    val paymentService = PaymentService()
-    val routerService = PaymentRouterService(paymentService)
-    val redisService = RedisService(routerService)
-
     install(ContentNegotiation) {
         json(Json {
             prettyPrint = true
             isLenient = true
+            encodeDefaults = true
         })
     }
 
     monitor.subscribe(ApplicationStopped) {
-        redisService.closeConnection()
+        RedisService.closeConnection()
     }
 
-    configureRouting(redisService)
+    configureRouting()
 
     monitor.subscribe(ApplicationStarted) {
-        redisService.startRequestConsumer()
+        RedisService.startRequestConsumer()
     }
 }
