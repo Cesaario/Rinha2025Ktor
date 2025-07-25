@@ -59,11 +59,27 @@ object RedisService {
         return results.mapNotNull { runCatching { Json.decodeFromString<ProcessedPayment>(it) }.getOrNull() }
     }
 
+    suspend fun getServiceHealthStatus(service: PaymentService.PaymentProcessorService): ServiceHealthStatus {
+        val responseTimeKey = when (service) {
+            PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_RESPONSE_TIME_KEY
+            PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_RESPONSE_TIME_KEY
+        }
+        val failingKey = when (service) {
+            PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_FAILING_KEY
+            PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_FAILING_KEY
+        }
+
+        val responseTime = producerCommands.get(responseTimeKey).await()?.toLongOrNull() ?: 0L
+        val failing = producerCommands.get(failingKey).await()?.toBooleanStrictOrNull() ?: false
+
+        return ServiceHealthStatus(failing, responseTime)
+    }
+
     fun addPaymentRequestToQueue(paymentRequest: PaymentRequest) {
         try {
-            //log.info("Adding payment request to queue: $paymentRequest")
+            // log.info("Adding payment request to queue: $paymentRequest")
             producerCommands.lpush(QUEUE_KEY, Json.encodeToString(paymentRequest))
-            log.info("Payment request ${paymentRequest.correlationId} added to queue successfully")
+            // log.info("Payment request ${paymentRequest.correlationId} added to queue successfully")
         } catch (e: Exception) {
             log.error("Error adding payment request to queue: ${e.message}", e)
             throw e
@@ -88,7 +104,7 @@ object RedisService {
         }
     }
 
-    fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService){
+    suspend fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService){
         val responseTimeKey = when (service) {
             PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_RESPONSE_TIME_KEY
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_RESPONSE_TIME_KEY
@@ -97,8 +113,8 @@ object RedisService {
             PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_FAILING_KEY
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_FAILING_KEY
         }
-        producerCommands.set(responseTimeKey, status.minResponseTime.toString())
-        producerCommands.set(failingKey, status.failing.toString())
+        producerCommands.set(responseTimeKey, status.minResponseTime.toString()).await()
+        producerCommands.set(failingKey, status.failing.toString()).await()
     }
 
     fun closeConnection() {

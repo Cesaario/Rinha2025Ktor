@@ -10,11 +10,50 @@ import org.slf4j.LoggerFactory
 object PaymentRouterService {
     private val log = LoggerFactory.getLogger(this::class.java)
 
+    // If the response time from the default is higher than the response time from the fallback by this factor,
+    // then the fallback will result in a better amount ratio.
+    const val DECISION_FACTOR = 1.11
+
+    var serviceToBeUsed = PaymentService.PaymentProcessorService.DEFAULT
+
     suspend fun processPayment(paymentRequest: PaymentRequest) {
         //log.info("Processing payment request: $paymentRequest")
-        val response = PaymentService.processPayment(paymentRequest, PaymentService.PaymentProcessorService.DEFAULT)
-        if (response != null) {
+        val response = PaymentService.processPayment(paymentRequest, serviceToBeUsed)
+        if (response?.success == true) {
             SummaryService.registerProcessedPayment(response)
+        } else {
+            // Requeue payment request if processing failed
+            // RedisService.addPaymentRequestToQueue(paymentRequest)
         }
+    }
+
+    suspend fun updateServiceToBeUsed() {
+        val defaultHealthStatus = RedisService.getServiceHealthStatus(PaymentService.PaymentProcessorService.DEFAULT)
+        val fallbackHealthStatus = RedisService.getServiceHealthStatus(PaymentService.PaymentProcessorService.FALLBACK)
+
+        if (defaultHealthStatus.failing && !fallbackHealthStatus.failing) {
+            serviceToBeUsed = PaymentService.PaymentProcessorService.FALLBACK
+            log.info("Default service is failing, using fallback service")
+            return
+        }
+        if (!defaultHealthStatus.failing && fallbackHealthStatus.failing) {
+            serviceToBeUsed = PaymentService.PaymentProcessorService.DEFAULT
+            log.info("Fallback service is failing, using default service")
+            return
+        }
+        if (defaultHealthStatus.failing && fallbackHealthStatus.failing) {
+            log.info("Both services are failing, keeping the current service: ${serviceToBeUsed.name}")
+            return
+        }
+
+        serviceToBeUsed =
+            if (defaultHealthStatus.minResponseTime <= fallbackHealthStatus.minResponseTime * DECISION_FACTOR)
+                PaymentService.PaymentProcessorService.DEFAULT
+            else
+                PaymentService.PaymentProcessorService.FALLBACK
+
+        log.info(
+            "Using service ${serviceToBeUsed.name} based on response times: default=${defaultHealthStatus.minResponseTime}, fallback=${fallbackHealthStatus.minResponseTime}"
+        )
     }
 }

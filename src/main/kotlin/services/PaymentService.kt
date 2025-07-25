@@ -12,6 +12,7 @@ import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.CoroutineScope
@@ -42,18 +43,25 @@ object PaymentService {
             PaymentProcessRequest(paymentRequest.correlationId, paymentRequest.amount, now.toString())
 
         try {
-            client.post("${service.url}/payments") {
+            val before = System.currentTimeMillis()
+            val response = client.post("${service.url}/payments") {
                 contentType(ContentType.Application.Json)
                 setBody(payload)
             }
+            val after = System.currentTimeMillis()
+            val responseTime = after - before
 
-            log.info("Payment request ${paymentRequest.correlationId} processed!")
+            // log.info("Payment request ${paymentRequest.correlationId} processed!")
+
+            log.info("Service=${service.name}, responseTime=${responseTime}, status=${response.status}")
 
             return ProcessedPayment(
                 payload.correlationId,
                 payload.amount,
                 now.toInstant().toEpochMilli(),
-                service
+                service,
+                responseTime,
+                response.status == HttpStatusCode.OK
             )
         } catch (e: Exception) {
             log.error("Error processing payment request: ${e.message}", e)
@@ -80,11 +88,11 @@ object PaymentService {
                     contentType(ContentType.Application.Json)
                 }.body<ServiceHealthStatus>()
                 RedisService.updateProcessorHealthStatus(result, it)
-                log.info("Updated health status for ${it.name}: $result")
             } catch (e: Exception) {
                 log.error("Error updating health status for ${it.name}: ${e.message}", e)
             }
         }
+        PaymentRouterService.updateServiceToBeUsed()
     }
 
     enum class PaymentProcessorService {
