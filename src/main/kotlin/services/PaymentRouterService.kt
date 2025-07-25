@@ -11,13 +11,10 @@ object PaymentRouterService {
     private val log = LoggerFactory.getLogger(this::class.java)
 
     suspend fun processPayment(paymentRequest: PaymentRequest) {
-        log.info("Processing payment request: $paymentRequest")
+        //log.info("Processing payment request: $paymentRequest")
         val response = PaymentService.processPayment(paymentRequest, PaymentService.PaymentProcessorService.DEFAULT)
         if (response != null) {
             SummaryService.registerProcessedPayment(response)
-            log.info("Payment request processed! (${response.correlationId})")
-        } else {
-            log.info("Error processing payment request: ${paymentRequest.correlationId}")
         }
     }
 }

@@ -2,6 +2,7 @@ package app.cesario.services
 
 import app.cesario.dto.PaymentRequest
 import app.cesario.dto.ProcessedPayment
+import app.cesario.dto.ServiceHealthStatus
 import io.lettuce.core.ExperimentalLettuceCoroutinesApi
 import io.lettuce.core.Range
 import io.lettuce.core.RedisClient
@@ -19,8 +20,13 @@ import java.time.OffsetDateTime
 object RedisService {
     private val log = LoggerFactory.getLogger(this::class.java)
 
-    const val QUEUE = "payment_requests"
-    const val PROCESSED_PAYMENTS_SET = "processed_payments"
+    const val QUEUE_KEY = "payment_requests"
+    const val PROCESSED_PAYMENTS_SET_KEY = "processed_payments"
+    const val DEFAULT_PROCESSOR_RESPONSE_TIME_KEY = "default_processor_response_time"
+    const val DEFAULT_PROCESSOR_FAILING_KEY = "default_processor_failing"
+    const val FALLBACK_PROCESSOR_RESPONSE_TIME_KEY = "fallback_processor_response_time"
+    const val FALLBACK_PROCESSOR_FAILING_KEY = "fallback_processor_failing"
+
 
     private val redisURI = RedisURI.Builder.redis("localhost", 6379)
         .withTimeout(Duration.ofMinutes(10))
@@ -31,12 +37,10 @@ object RedisService {
     private val listenerCommands = listenerConnection.async()
     private val producerCommands = producerConnection.async()
 
-    val json = Json
-
     fun savePaymentToSortedSet(processedPayment: ProcessedPayment) {
         val score = processedPayment.timestamp.toDouble()
         val json = Json.encodeToString(processedPayment)
-        producerCommands.zadd(PROCESSED_PAYMENTS_SET, score, json)
+        producerCommands.zadd(PROCESSED_PAYMENTS_SET_KEY, score, json)
     }
 
     suspend fun getPaymentsFromSortedSet(start: OffsetDateTime?, end: OffsetDateTime?): List<ProcessedPayment> {
@@ -50,16 +54,16 @@ object RedisService {
             else -> Range.create(Double.MIN_VALUE, Double.MAX_VALUE)
         }
 
-        val results = producerCommands.zrangebyscore(PROCESSED_PAYMENTS_SET, range).await()
+        val results = producerCommands.zrangebyscore(PROCESSED_PAYMENTS_SET_KEY, range).await()
 
         return results.mapNotNull { runCatching { Json.decodeFromString<ProcessedPayment>(it) }.getOrNull() }
     }
 
     fun addPaymentRequestToQueue(paymentRequest: PaymentRequest) {
         try {
-            log.info("Adding payment request to queue: $paymentRequest")
-            producerCommands.lpush(QUEUE, json.encodeToString(paymentRequest))
-            log.info("Payment request added to queue successfully")
+            //log.info("Adding payment request to queue: $paymentRequest")
+            producerCommands.lpush(QUEUE_KEY, Json.encodeToString(paymentRequest))
+            log.info("Payment request ${paymentRequest.correlationId} added to queue successfully")
         } catch (e: Exception) {
             log.error("Error adding payment request to queue: ${e.message}", e)
             throw e
@@ -71,10 +75,10 @@ object RedisService {
         CoroutineScope(Dispatchers.IO).launch {
             while (true) {
                 try {
-                    val result = listenerCommands.brpop(0, QUEUE).await()
-                    log.info("Request received from queue: $result")
+                    val result = listenerCommands.brpop(0, QUEUE_KEY).await()
+                    //log.info("Request received from queue: $result")
                     if (result != null) {
-                        val request = json.decodeFromString<PaymentRequest>(result.value)
+                        val request = Json.decodeFromString<PaymentRequest>(result.value)
                         PaymentRouterService.processPayment(request)
                     }
                 } catch (e: Exception) {
@@ -82,6 +86,19 @@ object RedisService {
                 }
             }
         }
+    }
+
+    fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService){
+        val responseTimeKey = when (service) {
+            PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_RESPONSE_TIME_KEY
+            PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_RESPONSE_TIME_KEY
+        }
+        val failingKey = when (service) {
+            PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_FAILING_KEY
+            PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_FAILING_KEY
+        }
+        producerCommands.set(responseTimeKey, status.minResponseTime.toString())
+        producerCommands.set(failingKey, status.failing.toString())
     }
 
     fun closeConnection() {

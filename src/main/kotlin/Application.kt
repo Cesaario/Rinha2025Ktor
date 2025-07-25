@@ -32,6 +32,7 @@ fun Application.module() {
     }
 
     configureRouting()
+    PaymentService.startHealthCheckInterval()
 
     monitor.subscribe(ApplicationStarted) {
         RedisService.startRequestConsumer()
