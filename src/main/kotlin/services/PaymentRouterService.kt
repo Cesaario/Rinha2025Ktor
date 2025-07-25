@@ -1,7 +1,13 @@
 package app.cesario.services
 
 import app.cesario.dto.PaymentRequest
+import app.cesario.services.PaymentService.updateServiceHealthCheck
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.slf4j.LoggerFactory
+import java.util.Timer
+import kotlin.concurrent.timerTask
 
 /**
  * Ideia: e se ao invés de chamar o endpoint de status dos processors, por que eu não me baseio no tempo de resposta de cada requisição para eles?
@@ -9,6 +15,8 @@ import org.slf4j.LoggerFactory
  */
 object PaymentRouterService {
     private val log = LoggerFactory.getLogger(this::class.java)
+
+    const val SERVICE_RESOLVER_INTERVAL = 100L
 
     // If the response time from the default is higher than the response time from the fallback by this factor,
     // then the fallback will result in a better amount ratio.
@@ -26,6 +34,19 @@ object PaymentRouterService {
             // RedisService.addPaymentRequestToQueue(paymentRequest)
         }
     }
+
+    fun startServiceResolverInterval() {
+        Timer().scheduleAtFixedRate(
+            timerTask {
+                CoroutineScope(Dispatchers.IO).launch {
+                    updateServiceToBeUsed()
+                }
+            },
+            0L,
+            SERVICE_RESOLVER_INTERVAL
+        )
+    }
+
 
     suspend fun updateServiceToBeUsed() {
         val defaultHealthStatus = RedisService.getServiceHealthStatus(PaymentService.PaymentProcessorService.DEFAULT)

@@ -104,7 +104,7 @@ object RedisService {
         }
     }
 
-    suspend fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService){
+    fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService){
         val responseTimeKey = when (service) {
             PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_RESPONSE_TIME_KEY
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_RESPONSE_TIME_KEY
@@ -113,8 +113,8 @@ object RedisService {
             PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_FAILING_KEY
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_FAILING_KEY
         }
-        producerCommands.set(responseTimeKey, status.minResponseTime.toString()).await()
-        producerCommands.set(failingKey, status.failing.toString()).await()
+        producerCommands.set(responseTimeKey, status.minResponseTime.toString())
+        producerCommands.set(failingKey, status.failing.toString())
     }
 
     fun closeConnection() {

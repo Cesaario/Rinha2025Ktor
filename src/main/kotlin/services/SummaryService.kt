@@ -2,11 +2,15 @@ package app.cesario.services
 
 import app.cesario.dto.PaymentSummaryForService
 import app.cesario.dto.ProcessedPayment
+import app.cesario.dto.ServiceHealthStatus
 import java.time.OffsetDateTime
 
 object SummaryService {
     fun registerProcessedPayment(processedPayment: ProcessedPayment){
         RedisService.savePaymentToSortedSet(processedPayment)
+
+        val healthStatus = ServiceHealthStatus(!processedPayment.success, processedPayment.responseTime)
+        RedisService.updateProcessorHealthStatus(healthStatus, processedPayment.service)
     }
 
     suspend fun getPaymentSummary(start: OffsetDateTime?, end: OffsetDateTime?): Map<String, PaymentSummaryForService> {

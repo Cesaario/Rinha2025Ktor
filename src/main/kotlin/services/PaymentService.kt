@@ -69,7 +69,7 @@ object PaymentService {
         }
     }
 
-    fun startHealthCheckInterval() {
+    fun startHealthCheckFetcherInterval() {
         Timer().scheduleAtFixedRate(
             timerTask {
                 CoroutineScope(Dispatchers.IO).launch {
