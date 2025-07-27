@@ -3,6 +3,7 @@ package app.cesario.services
 import app.cesario.dto.PaymentRequest
 import app.cesario.dto.ProcessedPayment
 import app.cesario.dto.ServiceHealthStatus
+import io.ktor.server.config.ApplicationConfig
 import io.lettuce.core.ExperimentalLettuceCoroutinesApi
 import io.lettuce.core.Range
 import io.lettuce.core.RedisClient
@@ -27,15 +28,32 @@ object RedisService {
     const val FALLBACK_PROCESSOR_RESPONSE_TIME_KEY = "fallback_processor_response_time"
     const val FALLBACK_PROCESSOR_FAILING_KEY = "fallback_processor_failing"
 
+    private lateinit var redisURI: RedisURI
+    private lateinit var client: RedisClient
+    private lateinit var listenerConnection: io.lettuce.core.api.StatefulRedisConnection<String, String>
+    private lateinit var producerConnection: io.lettuce.core.api.StatefulRedisConnection<String, String>
+    private lateinit var listenerCommands: io.lettuce.core.api.async.RedisAsyncCommands<String, String>
+    private lateinit var producerCommands: io.lettuce.core.api.async.RedisAsyncCommands<String, String>
+    private var initialized = false
 
-    private val redisURI = RedisURI.Builder.redis("localhost", 6379)
-        .withTimeout(Duration.ofMinutes(10))
-        .build()
-    private val client = RedisClient.create(redisURI)
-    private val listenerConnection = client.connect()
-    private val producerConnection = client.connect()
-    private val listenerCommands = listenerConnection.async()
-    private val producerCommands = producerConnection.async()
+    fun init(config: ApplicationConfig) {
+        val redisHost = config.propertyOrNull("ktor.services.redis.host")?.getString()
+        val redisPort = config.propertyOrNull("ktor.services.redis.port")?.getString()!!.toInt()
+
+        log.info("Redis host: $redisHost, port: $redisPort")
+
+        redisURI = RedisURI.Builder.redis(redisHost, redisPort)
+            .withTimeout(Duration.ofMinutes(10))
+            .build()
+        client = RedisClient.create(redisURI)
+        listenerConnection = client.connect()
+        producerConnection = client.connect()
+        listenerCommands = listenerConnection.async()
+        producerCommands = producerConnection.async()
+
+        startRequestConsumer()
+        initialized = true
+    }
 
     fun savePaymentToSortedSet(processedPayment: ProcessedPayment) {
         val score = processedPayment.timestamp.toDouble()
@@ -59,7 +77,10 @@ object RedisService {
         return results.mapNotNull { runCatching { Json.decodeFromString<ProcessedPayment>(it) }.getOrNull() }
     }
 
-    suspend fun getServiceHealthStatus(service: PaymentService.PaymentProcessorService): ServiceHealthStatus {
+    suspend fun getServiceHealthStatus(service: PaymentService.PaymentProcessorService): ServiceHealthStatus? {
+        if(!initialized)
+            return null
+
         val responseTimeKey = when (service) {
             PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_RESPONSE_TIME_KEY
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_RESPONSE_TIME_KEY
@@ -87,6 +108,7 @@ object RedisService {
 
     }
 
+    // Consigo dividir isso em diferentes workers?
     fun startRequestConsumer() {
         CoroutineScope(Dispatchers.IO).launch {
             while (true) {
@@ -105,6 +127,9 @@ object RedisService {
     }
 
     fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService){
+        if(!initialized)
+            return
+
         val responseTimeKey = when (service) {
             PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_RESPONSE_TIME_KEY
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_RESPONSE_TIME_KEY
@@ -115,6 +140,17 @@ object RedisService {
         }
         producerCommands.set(responseTimeKey, status.minResponseTime.toString())
         producerCommands.set(failingKey, status.failing.toString())
+    }
+
+    suspend fun resetPayments(){
+        try {
+            log.info("Resetting processed payments")
+            producerCommands.del(PROCESSED_PAYMENTS_SET_KEY).await()
+            producerCommands.del(QUEUE_KEY).await()
+            log.info("Processed payments reset successfully")
+        } catch (e: Exception) {
+            log.error("Error resetting processed payments: ${e.message}", e)
+        }
     }
 
     fun closeConnection() {

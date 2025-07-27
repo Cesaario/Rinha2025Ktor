@@ -3,4 +3,15 @@ ktor:
         modules:
             - app.cesario.ApplicationKt.module
     deployment:
-        port: 9999
+        port: 8080
+        healthCheckUpdater: ${IS_HEALTH_CHECK_UPDATER:false}
+    services:
+        redis:
+            host: "$REDIS_HOST:localhostdefault"
+            port: "$REDIS_PORT:6379"
+        default_processor:
+            host: "$DEFAULT_PROCESSOR_HOST:localhostdefault"
+            port: "$DEFAULT_PROCESSOR_PORT:8001"
+        fallback_processor:
+            host: "$FALLBACK_PROCESSOR_HOST:localhostdefault"
+            port: "$FALLBACK_PROCESSOR_PORT:8002"

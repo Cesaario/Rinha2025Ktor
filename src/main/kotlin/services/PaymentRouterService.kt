@@ -16,7 +16,7 @@ import kotlin.concurrent.timerTask
 object PaymentRouterService {
     private val log = LoggerFactory.getLogger(this::class.java)
 
-    const val SERVICE_RESOLVER_INTERVAL = 100L
+    const val SERVICE_RESOLVER_INTERVAL = 5000L
 
     // If the response time from the default is higher than the response time from the fallback by this factor,
     // then the fallback will result in a better amount ratio.
@@ -52,18 +52,21 @@ object PaymentRouterService {
         val defaultHealthStatus = RedisService.getServiceHealthStatus(PaymentService.PaymentProcessorService.DEFAULT)
         val fallbackHealthStatus = RedisService.getServiceHealthStatus(PaymentService.PaymentProcessorService.FALLBACK)
 
+        if(defaultHealthStatus == null || fallbackHealthStatus == null)
+            return
+
         if (defaultHealthStatus.failing && !fallbackHealthStatus.failing) {
             serviceToBeUsed = PaymentService.PaymentProcessorService.FALLBACK
-            log.info("Default service is failing, using fallback service")
+            // log.info("Default service is failing, using fallback service")
             return
         }
         if (!defaultHealthStatus.failing && fallbackHealthStatus.failing) {
             serviceToBeUsed = PaymentService.PaymentProcessorService.DEFAULT
-            log.info("Fallback service is failing, using default service")
+            // log.info("Fallback service is failing, using default service")
             return
         }
         if (defaultHealthStatus.failing && fallbackHealthStatus.failing) {
-            log.info("Both services are failing, keeping the current service: ${serviceToBeUsed.name}")
+            // log.info("Both services are failing, keeping the current service: ${serviceToBeUsed.name}")
             return
         }
 
@@ -73,8 +76,8 @@ object PaymentRouterService {
             else
                 PaymentService.PaymentProcessorService.FALLBACK
 
-        log.info(
-            "Using service ${serviceToBeUsed.name} based on response times: default=${defaultHealthStatus.minResponseTime}, fallback=${fallbackHealthStatus.minResponseTime}"
-        )
+//        log.info(
+//            "Using service ${serviceToBeUsed.name} based on response times: default=${defaultHealthStatus.minResponseTime}, fallback=${fallbackHealthStatus.minResponseTime}"
+//        )
     }
 }

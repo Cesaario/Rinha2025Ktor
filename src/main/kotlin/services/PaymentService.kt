@@ -15,6 +15,8 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
+import io.ktor.server.config.ApplicationConfig
+import io.ktor.util.collections.asBoolean
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,7 +29,11 @@ import kotlin.concurrent.timerTask
 object PaymentService {
     private val log = LoggerFactory.getLogger(this::class.java)
 
+    private val servicesUrl = mutableMapOf<PaymentProcessorService, String>()
+
     const val SERVICE_HEALTH_CHECK_INTERVAL = 5000L
+
+    var isUpdater = false
 
     private val client = HttpClient(CIO) {
         install(ContentNegotiation) {
@@ -37,6 +43,18 @@ object PaymentService {
         }
     }
 
+    fun init(config: ApplicationConfig) {
+        val defaultServiceHost = config.propertyOrNull("ktor.services.default_processor.host")?.getString()!!
+        val defaultServicePort = config.propertyOrNull("ktor.services.default_processor.port")?.getString()!!
+        val fallbackServiceHost = config.propertyOrNull("ktor.services.fallback_processor.host")?.getString()!!
+        val fallbackServicePort = config.propertyOrNull("ktor.services.fallback_processor.port")?.getString()!!
+        servicesUrl.put(PaymentProcessorService.DEFAULT, "http://$defaultServiceHost:$defaultServicePort")
+        servicesUrl.put(PaymentProcessorService.FALLBACK, "http://$fallbackServiceHost:$fallbackServicePort")
+        isUpdater = config.propertyOrNull("ktor.deployment.healthCheckUpdater")?.getString().toBoolean()
+
+        log.info("Default: ${servicesUrl[PaymentProcessorService.DEFAULT]}, Fallback: ${servicesUrl[PaymentProcessorService.FALLBACK]}")
+    }
+
     suspend fun processPayment(paymentRequest: PaymentRequest, service: PaymentProcessorService): ProcessedPayment? {
         val now = OffsetDateTime.now()
         val payload =
@@ -44,16 +62,14 @@ object PaymentService {
 
         try {
             val before = System.currentTimeMillis()
-            val response = client.post("${service.url}/payments") {
+            val response = client.post("${service.getUrl()}/payments") {
                 contentType(ContentType.Application.Json)
                 setBody(payload)
             }
             val after = System.currentTimeMillis()
             val responseTime = after - before
 
-            // log.info("Payment request ${paymentRequest.correlationId} processed!")
-
-            log.info("Service=${service.name}, responseTime=${responseTime}, status=${response.status}")
+            // log.info("Service=${service.name}, responseTime=${responseTime}, status=${response.status}")
 
             return ProcessedPayment(
                 payload.correlationId,
@@ -76,33 +92,43 @@ object PaymentService {
                     updateServiceHealthCheck()
                 }
             },
-            0L,
+            1000L,
             SERVICE_HEALTH_CHECK_INTERVAL
         )
     }
 
     suspend fun updateServiceHealthCheck() {
+        var shouldUpdate = false
+
+        if(!isUpdater) {
+            PaymentRouterService.updateServiceToBeUsed()
+            return
+        }
+
         PaymentProcessorService.entries.forEach {
             try {
-                val result = client.get("${it.url}/payments/service-health") {
+                val url = it.getUrl()
+                if (url == null)
+                    return@forEach
+                val result = client.get("${url}/payments/service-health") {
                     contentType(ContentType.Application.Json)
                 }.body<ServiceHealthStatus>()
                 RedisService.updateProcessorHealthStatus(result, it)
+                shouldUpdate = true
             } catch (e: Exception) {
                 log.error("Error updating health status for ${it.name}: ${e.message}", e)
             }
         }
-        PaymentRouterService.updateServiceToBeUsed()
+        if(shouldUpdate)
+            PaymentRouterService.updateServiceToBeUsed()
     }
 
     enum class PaymentProcessorService {
-        DEFAULT("http://localhost:8001"),
-        FALLBACK("http://localhost:8002");
+        DEFAULT,
+        FALLBACK;
 
-        val url: String
-
-        constructor(url: String) {
-            this.url = url
+        fun getUrl(): String? {
+            return "${servicesUrl[this]}"
         }
     }
 }

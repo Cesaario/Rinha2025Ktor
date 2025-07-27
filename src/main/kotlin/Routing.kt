@@ -4,6 +4,7 @@ import app.cesario.dto.PaymentRequest
 import app.cesario.services.PaymentService
 import app.cesario.services.RedisService
 import app.cesario.services.SummaryService
+import io.ktor.client.plugins.HttpCallValidator
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.*
 import io.ktor.server.request.receive
@@ -33,6 +34,10 @@ fun Application.configureRouting() {
             val end = if(to != null) OffsetDateTime.parse(to) else null
             val summary = SummaryService.getPaymentSummary(start, end)
             call.respond(summary)
+        }
+        delete("/payments") {
+            RedisService.resetPayments()
+            call.respond(HttpStatusCode.NoContent)
         }
     }
 }

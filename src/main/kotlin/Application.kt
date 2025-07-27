@@ -15,6 +15,9 @@ fun main(args: Array<String>) {
 fun Application.module() {
     log.info("Starting Ktor application :D")
 
+    RedisService.init(environment.config)
+    PaymentService.init(environment.config)
+
     install(ContentNegotiation) {
         json(Json {
             prettyPrint = true
@@ -28,10 +31,7 @@ fun Application.module() {
     }
 
     configureRouting()
+
     PaymentService.startHealthCheckFetcherInterval()
     PaymentRouterService.startServiceResolverInterval()
-
-    monitor.subscribe(ApplicationStarted) {
-        RedisService.startRequestConsumer()
-    }
 }
