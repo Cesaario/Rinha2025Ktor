@@ -30,6 +30,7 @@ services:
 
   redis:
     image: redis:8.0.3-alpine
+    command: redis-server --save "" --appendonly no
     container_name: redis
     hostname: redis
     ports:
@@ -55,6 +56,7 @@ services:
       - DEFAULT_PROCESSOR_PORT=8080
       - FALLBACK_PROCESSOR_HOST=payment-processor-2
       - FALLBACK_PROCESSOR_PORT=8080
+      - PORT=8080
     deploy:
       resources:
         limits:
@@ -73,6 +75,7 @@ services:
       - DEFAULT_PROCESSOR_PORT=8080
       - FALLBACK_PROCESSOR_HOST=payment-processor-2
       - FALLBACK_PROCESSOR_PORT=8080
+      - PORT=8080
     deploy:
       resources:
         limits:

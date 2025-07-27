@@ -8,10 +8,13 @@ import io.lettuce.core.ExperimentalLettuceCoroutinesApi
 import io.lettuce.core.Range
 import io.lettuce.core.RedisClient
 import io.lettuce.core.RedisURI
+import io.lettuce.core.api.StatefulRedisConnection
+import io.lettuce.core.api.async.RedisAsyncCommands
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.future.await
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import org.slf4j.LoggerFactory
 import java.time.Duration
@@ -21,7 +24,6 @@ import java.time.OffsetDateTime
 object RedisService {
     private val log = LoggerFactory.getLogger(this::class.java)
 
-    const val QUEUE_KEY = "payment_requests"
     const val PROCESSED_PAYMENTS_SET_KEY = "processed_payments"
     const val DEFAULT_PROCESSOR_RESPONSE_TIME_KEY = "default_processor_response_time"
     const val DEFAULT_PROCESSOR_FAILING_KEY = "default_processor_failing"
@@ -30,10 +32,8 @@ object RedisService {
 
     private lateinit var redisURI: RedisURI
     private lateinit var client: RedisClient
-    private lateinit var listenerConnection: io.lettuce.core.api.StatefulRedisConnection<String, String>
-    private lateinit var producerConnection: io.lettuce.core.api.StatefulRedisConnection<String, String>
-    private lateinit var listenerCommands: io.lettuce.core.api.async.RedisAsyncCommands<String, String>
-    private lateinit var producerCommands: io.lettuce.core.api.async.RedisAsyncCommands<String, String>
+    private lateinit var connection: StatefulRedisConnection<String, String>
+    private lateinit var commands: RedisAsyncCommands<String, String>
     private var initialized = false
 
     fun init(config: ApplicationConfig) {
@@ -46,19 +46,19 @@ object RedisService {
             .withTimeout(Duration.ofMinutes(10))
             .build()
         client = RedisClient.create(redisURI)
-        listenerConnection = client.connect()
-        producerConnection = client.connect()
-        listenerCommands = listenerConnection.async()
-        producerCommands = producerConnection.async()
+        connection = client.connect()
+        commands = connection.async()
 
-        startRequestConsumer()
         initialized = true
+        runBlocking {
+            resetPayments()
+        }
     }
 
     fun savePaymentToSortedSet(processedPayment: ProcessedPayment) {
         val score = processedPayment.timestamp.toDouble()
         val json = Json.encodeToString(processedPayment)
-        producerCommands.zadd(PROCESSED_PAYMENTS_SET_KEY, score, json)
+        commands.zadd(PROCESSED_PAYMENTS_SET_KEY, score, json)
     }
 
     suspend fun getPaymentsFromSortedSet(start: OffsetDateTime?, end: OffsetDateTime?): List<ProcessedPayment> {
@@ -72,13 +72,13 @@ object RedisService {
             else -> Range.create(Double.MIN_VALUE, Double.MAX_VALUE)
         }
 
-        val results = producerCommands.zrangebyscore(PROCESSED_PAYMENTS_SET_KEY, range).await()
+        val results = commands.zrangebyscore(PROCESSED_PAYMENTS_SET_KEY, range).await()
 
         return results.mapNotNull { runCatching { Json.decodeFromString<ProcessedPayment>(it) }.getOrNull() }
     }
 
     suspend fun getServiceHealthStatus(service: PaymentService.PaymentProcessorService): ServiceHealthStatus? {
-        if(!initialized)
+        if (!initialized)
             return null
 
         val responseTimeKey = when (service) {
@@ -90,44 +90,14 @@ object RedisService {
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_FAILING_KEY
         }
 
-        val responseTime = producerCommands.get(responseTimeKey).await()?.toLongOrNull() ?: 0L
-        val failing = producerCommands.get(failingKey).await()?.toBooleanStrictOrNull() ?: false
+        val responseTime = commands.get(responseTimeKey).await()?.toLongOrNull() ?: 0L
+        val failing = commands.get(failingKey).await()?.toBooleanStrictOrNull() ?: false
 
         return ServiceHealthStatus(failing, responseTime)
     }
 
-    fun addPaymentRequestToQueue(paymentRequest: PaymentRequest) {
-        try {
-            // log.info("Adding payment request to queue: $paymentRequest")
-            producerCommands.lpush(QUEUE_KEY, Json.encodeToString(paymentRequest))
-            // log.info("Payment request ${paymentRequest.correlationId} added to queue successfully")
-        } catch (e: Exception) {
-            log.error("Error adding payment request to queue: ${e.message}", e)
-            throw e
-        }
-
-    }
-
-    // Consigo dividir isso em diferentes workers?
-    fun startRequestConsumer() {
-        CoroutineScope(Dispatchers.IO).launch {
-            while (true) {
-                try {
-                    val result = listenerCommands.brpop(0, QUEUE_KEY).await()
-                    //log.info("Request received from queue: $result")
-                    if (result != null) {
-                        val request = Json.decodeFromString<PaymentRequest>(result.value)
-                        PaymentRouterService.processPayment(request)
-                    }
-                } catch (e: Exception) {
-                    log.error("Error processing payment request: ${e.message}", e)
-                }
-            }
-        }
-    }
-
-    fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService){
-        if(!initialized)
+    fun updateProcessorHealthStatus(status: ServiceHealthStatus, service: PaymentService.PaymentProcessorService) {
+        if (!initialized)
             return
 
         val responseTimeKey = when (service) {
@@ -138,15 +108,14 @@ object RedisService {
             PaymentService.PaymentProcessorService.DEFAULT -> DEFAULT_PROCESSOR_FAILING_KEY
             PaymentService.PaymentProcessorService.FALLBACK -> FALLBACK_PROCESSOR_FAILING_KEY
         }
-        producerCommands.set(responseTimeKey, status.minResponseTime.toString())
-        producerCommands.set(failingKey, status.failing.toString())
+        commands.set(responseTimeKey, status.minResponseTime.toString())
+        commands.set(failingKey, status.failing.toString())
     }
 
-    suspend fun resetPayments(){
+    suspend fun resetPayments() {
         try {
             log.info("Resetting processed payments")
-            producerCommands.del(PROCESSED_PAYMENTS_SET_KEY).await()
-            producerCommands.del(QUEUE_KEY).await()
+            commands.del(PROCESSED_PAYMENTS_SET_KEY).await()
             log.info("Processed payments reset successfully")
         } catch (e: Exception) {
             log.error("Error resetting processed payments: ${e.message}", e)
@@ -156,8 +125,8 @@ object RedisService {
     fun closeConnection() {
         try {
             log.info("Closing Redis connection")
-            producerConnection.close()
-            listenerConnection.close()
+            connection.close()
+            connection.close()
             client.shutdown()
             log.info("Redis connection closed successfully")
         } catch (e: Exception) {

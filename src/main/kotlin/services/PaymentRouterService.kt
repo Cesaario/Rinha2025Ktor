@@ -20,7 +20,8 @@ object PaymentRouterService {
 
     // If the response time from the default is higher than the response time from the fallback by this factor,
     // then the fallback will result in a better amount ratio.
-    const val DECISION_FACTOR = 1.11
+    //const val DECISION_FACTOR = 1.11
+    const val DECISION_FACTOR = 2.0
 
     var serviceToBeUsed = PaymentService.PaymentProcessorService.DEFAULT
 
@@ -71,7 +72,7 @@ object PaymentRouterService {
         }
 
         serviceToBeUsed =
-            if (defaultHealthStatus.minResponseTime <= fallbackHealthStatus.minResponseTime * DECISION_FACTOR)
+            if (defaultHealthStatus.minResponseTime < 10 || defaultHealthStatus.minResponseTime <= fallbackHealthStatus.minResponseTime * DECISION_FACTOR)
                 PaymentService.PaymentProcessorService.DEFAULT
             else
                 PaymentService.PaymentProcessorService.FALLBACK

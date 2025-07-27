@@ -2,6 +2,7 @@ package app.cesario
 
 import app.cesario.dto.PaymentRequest
 import app.cesario.services.PaymentService
+import app.cesario.services.QueueService
 import app.cesario.services.RedisService
 import app.cesario.services.SummaryService
 import io.ktor.client.plugins.HttpCallValidator
@@ -20,7 +21,7 @@ fun Application.configureRouting() {
         post("/payments") {
             try {
                 val request = call.receive<PaymentRequest>()
-                RedisService.addPaymentRequestToQueue(request)
+                QueueService.addPaymentRequestToQueue(request)
                 call.respond(HttpStatusCode.Accepted)
             } catch (e: Exception) {
                 log.error("Error processing payment request: ${e.message}", e)

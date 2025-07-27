@@ -69,7 +69,7 @@ object PaymentService {
             val after = System.currentTimeMillis()
             val responseTime = after - before
 
-            // log.info("Service=${service.name}, responseTime=${responseTime}, status=${response.status}")
+            log.info("Service=${service.name}, responseTime=${responseTime}, status=${response.status}")
 
             return ProcessedPayment(
                 payload.correlationId,
