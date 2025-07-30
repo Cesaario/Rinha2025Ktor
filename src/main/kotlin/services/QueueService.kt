@@ -10,17 +10,9 @@ import org.slf4j.LoggerFactory
 object QueueService {
     private val log = LoggerFactory.getLogger(this::class.java)
 
-    val requestQueue = Channel<PaymentRequest>(capacity = Channel.UNLIMITED)
+    val requestQueue = Channel<PaymentRequest>(capacity = 20_000)
 
-    fun addPaymentRequestToQueue(paymentRequest: PaymentRequest) {
-        CoroutineScope(Dispatchers.IO).launch {
-            requestQueue.send(paymentRequest)
-        }
-    }
-
-    fun initializeConsumer() {
-        CoroutineScope(Dispatchers.IO).launch {
-
-        }
+    suspend fun addPaymentRequestToQueue(paymentRequest: PaymentRequest) {
+        requestQueue.send(paymentRequest)
     }
 }

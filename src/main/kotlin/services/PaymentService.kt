@@ -7,6 +7,7 @@ import app.cesario.dto.ServiceHealthStatus
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
+import io.ktor.client.engine.cio.endpoint
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.client.request.post
@@ -40,6 +41,23 @@ object PaymentService {
             json(Json {
                 isLenient = true
             })
+        }
+        
+        engine {
+            maxConnectionsCount = 500  // Reduced from 2000 for memory constraints
+            endpoint {
+                maxConnectionsPerRoute = 100  // Reduced from 500
+                pipelineMaxSize = 20  // Reduced from 50
+                keepAliveTime = 15000  // Reduced from 30000 to free connections faster
+                connectTimeout = 3000  // Reduced from 5000
+                connectAttempts = 2   // Reduced from 3
+            }
+        }
+        
+        install(io.ktor.client.plugins.HttpTimeout) {
+            requestTimeoutMillis = 10000  // Reduced from 15000
+            connectTimeoutMillis = 3000   // Reduced from 5000
+            socketTimeoutMillis = 10000   // Reduced from 15000
         }
     }
 

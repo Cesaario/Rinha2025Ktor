@@ -25,9 +25,12 @@ fun Application.module() {
     val processorScope = CoroutineScope(Dispatchers.IO + processorJob)
 
     monitor.subscribe(ApplicationStarted) {
-        processorScope.launch {
-            for (request in requestQueue) {
-                PaymentRouterService.processPayment(request)
+        // Launch multiple consumers for parallel processing - optimized for resource constraints
+        repeat(3) { // Reduced from 10 to 3 consumers for 0.6 cores
+            processorScope.launch {
+                for (request in requestQueue) {
+                    PaymentRouterService.processPayment(request)
+                }
             }
         }
     }
@@ -52,6 +55,4 @@ fun Application.module() {
 
     PaymentService.startHealthCheckFetcherInterval()
     PaymentRouterService.startServiceResolverInterval()
-
-    QueueService.initializeConsumer()
 }

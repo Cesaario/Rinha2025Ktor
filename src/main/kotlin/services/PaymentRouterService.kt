@@ -72,7 +72,7 @@ object PaymentRouterService {
         }
 
         serviceToBeUsed =
-            if (defaultHealthStatus.minResponseTime < 10 || defaultHealthStatus.minResponseTime <= fallbackHealthStatus.minResponseTime * DECISION_FACTOR)
+            if (defaultHealthStatus.minResponseTime < 30 || defaultHealthStatus.minResponseTime <= fallbackHealthStatus.minResponseTime * DECISION_FACTOR)
                 PaymentService.PaymentProcessorService.DEFAULT
             else
                 PaymentService.PaymentProcessorService.FALLBACK
