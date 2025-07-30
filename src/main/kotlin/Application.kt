@@ -26,7 +26,7 @@ fun Application.module() {
 
     monitor.subscribe(ApplicationStarted) {
         // Launch multiple consumers for parallel processing - optimized for resource constraints
-        repeat(3) { // Reduced from 10 to 3 consumers for 0.6 cores
+        repeat(10) {
             processorScope.launch {
                 for (request in requestQueue) {
                     PaymentRouterService.processPayment(request)
