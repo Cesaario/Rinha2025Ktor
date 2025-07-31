@@ -20,9 +20,19 @@ fun Application.configureRouting() {
     routing {
         post("/payments") {
             try {
+                val start = System.nanoTime()
+
                 val request = call.receive<PaymentRequest>()
+                val endSerialize = System.nanoTime()
+
                 QueueService.addPaymentRequestToQueue(request)
+                val endQueue = System.nanoTime()
+
                 call.respond(HttpStatusCode.Accepted)
+                val endRespose = System.nanoTime()
+
+                // log.info("serialize: ${start - endSerialize} ns, queue: ${endSerialize - endQueue} ns, response: ${endQueue - endRespose} ns")
+
             } catch (e: Exception) {
                 log.error("Error processing payment request: ${e.message}", e)
                 call.respond(HttpStatusCode.InternalServerError, "Error processing payment request: ${e.message}")

@@ -23,6 +23,28 @@ RUN mkdir /app
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/rinhabackend.jar
 
 # JVM optimizations for low memory and CPU constraints
-ENV JAVA_OPTS="-Xms64m -Xmx128m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:+UseStringDeduplication -XX:+OptimizeStringConcat -XX:+UseCompressedOops -XX:+UseCompressedClassPointers -Djava.net.preferIPv4Stack=true -Dio.netty.leakDetection.level=disabled -Dio.netty.recycler.maxCapacity=32 -Dio.netty.allocator.numDirectArenas=2 -Dio.netty.allocator.numHeapArenas=2"
+ENV JAVA_OPTS="\
+  -Xms64m \
+  -Xmx128m \
+  -XX:+UseG1GC \
+  -XX:MaxGCPauseMillis=20 \
+  -XX:+AlwaysPreTouch \
+  -XX:+UseStringDeduplication \
+  -XX:+DisableExplicitGC \
+  -XX:+TieredCompilation \
+  -XX:TieredStopAtLevel=1 \
+  -XX:+UseCompressedOops \
+  -XX:+UseCompressedClassPointers \
+  -XX:+UnlockExperimentalVMOptions \
+  -XX:+UseContainerSupport \
+  -XX:MaxRAMPercentage=90.0 \
+  -XX:+ExitOnOutOfMemoryError \
+  -Djava.awt.headless=true \
+  -Djava.net.preferIPv4Stack=true \
+  -Dio.netty.leakDetection.level=disabled \
+  -Dio.netty.recycler.maxCapacity=32 \
+  -Dio.netty.allocator.numDirectArenas=2 \
+  -Dio.netty.allocator.numHeapArenas=2 \
+"
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/rinhabackend.jar"]
