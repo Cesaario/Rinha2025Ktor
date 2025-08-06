@@ -1,19 +1,15 @@
 package app.cesario.services
 
-import app.cesario.dto.PaymentRequest
 import app.cesario.dto.ProcessedPayment
 import app.cesario.dto.ServiceHealthStatus
-import io.ktor.server.config.ApplicationConfig
+import io.ktor.server.config.*
 import io.lettuce.core.ExperimentalLettuceCoroutinesApi
 import io.lettuce.core.Range
 import io.lettuce.core.RedisClient
 import io.lettuce.core.RedisURI
 import io.lettuce.core.api.StatefulRedisConnection
 import io.lettuce.core.api.async.RedisAsyncCommands
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.future.await
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import org.slf4j.LoggerFactory
@@ -37,8 +33,8 @@ object RedisService {
     private var initialized = false
 
     fun init(config: ApplicationConfig) {
-        val redisHost = config.propertyOrNull("ktor.services.redis.host")?.getString()
-        val redisPort = config.propertyOrNull("ktor.services.redis.port")?.getString()!!.toInt()
+        val redisHost = config.propertyOrNull("ktor.services.redis.host")?.getString() ?: "localhost"
+        val redisPort = config.propertyOrNull("ktor.services.redis.port")?.getString()?.toInt() ?: 6379
 
         log.info("Redis host: $redisHost, port: $redisPort")
 

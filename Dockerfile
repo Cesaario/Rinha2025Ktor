@@ -16,35 +16,16 @@ WORKDIR /home/gradle/src
 # and boot JAR by default.
 RUN gradle buildFatJar --no-daemon
 
-# Stage 3: Create the Runtime Image
-FROM amazoncorretto:22 AS runtime
-EXPOSE 8080
-RUN mkdir /app
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/rinhabackend.jar
+# Stage 4: Native Image Build
+FROM ghcr.io/graalvm/graalvm-ce:22.3.2 as native-build
+RUN gu install native-image
+WORKDIR /home/gradle/app
+COPY --from=build /home/gradle/src /home/gradle/app
+RUN ./gradlew nativeCompile
 
-# JVM optimizations for low memory and CPU constraints
-ENV JAVA_OPTS="\
-  -Xms64m \
-  -Xmx128m \
-  -XX:+UseG1GC \
-  -XX:MaxGCPauseMillis=20 \
-  -XX:+AlwaysPreTouch \
-  -XX:+UseStringDeduplication \
-  -XX:+DisableExplicitGC \
-  -XX:+TieredCompilation \
-  -XX:TieredStopAtLevel=1 \
-  -XX:+UseCompressedOops \
-  -XX:+UseCompressedClassPointers \
-  -XX:+UnlockExperimentalVMOptions \
-  -XX:+UseContainerSupport \
-  -XX:MaxRAMPercentage=90.0 \
-  -XX:+ExitOnOutOfMemoryError \
-  -Djava.awt.headless=true \
-  -Djava.net.preferIPv4Stack=true \
-  -Dio.netty.leakDetection.level=disabled \
-  -Dio.netty.recycler.maxCapacity=32 \
-  -Dio.netty.allocator.numDirectArenas=2 \
-  -Dio.netty.allocator.numHeapArenas=2 \
-"
-
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/rinhabackend.jar"]
+# Stage 5: Native Runtime
+FROM ghcr.io/graalvm/graalvm-ce:22.3.2 as native-runtime
+EXPOSE 9999
+WORKDIR /app
+COPY --from=native-build /home/gradle/app/build/native/nativeCompile/rinhabackend /app/rinhabackend
+ENTRYPOINT ["/app/rinhabackend", "-port=9999"]

@@ -1,0 +1,6604 @@
+[
+  {
+    "name": "[Lio.ktor.network.selector.SelectInterest;"
+  },
+  {
+    "name": "[Ljava.lang.String;"
+  },
+  {
+    "name": "app.cesario.ApplicationKt",
+    "queryAllPublicMethods": true,
+    "methods": [
+      {
+        "name": "main",
+        "parameterTypes": [
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "module",
+        "parameterTypes": [
+          "io.ktor.server.application.Application"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.PaymentProcessRequest",
+    "fields": [
+      {
+        "name": "Companion"
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.PaymentProcessRequest$Companion",
+    "methods": [
+      {
+        "name": "serializer",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.PaymentRequest",
+    "fields": [
+      {
+        "name": "Companion"
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.PaymentRequest$Companion",
+    "methods": [
+      {
+        "name": "serializer",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.PaymentSummaryForService",
+    "fields": [
+      {
+        "name": "Companion"
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.PaymentSummaryForService$Companion",
+    "methods": [
+      {
+        "name": "serializer",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.ServiceHealthStatus",
+    "fields": [
+      {
+        "name": "Companion"
+      }
+    ]
+  },
+  {
+    "name": "app.cesario.dto.ServiceHealthStatus$Companion",
+    "methods": [
+      {
+        "name": "serializer",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.client.HttpClient",
+    "fields": [
+      {
+        "name": "closed"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.client.HttpClientConfig"
+  },
+  {
+    "name": "io.ktor.client.call.HttpClientCall",
+    "fields": [
+      {
+        "name": "received"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.client.content.ProgressListener"
+  },
+  {
+    "name": "io.ktor.client.engine.HttpClientEngineBase",
+    "fields": [
+      {
+        "name": "closed"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.client.engine.HttpClientEngineCapability"
+  },
+  {
+    "name": "io.ktor.client.engine.HttpClientEngineConfig"
+  },
+  {
+    "name": "io.ktor.client.engine.cio.Endpoint",
+    "fields": [
+      {
+        "name": "connections"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.client.plugins.HttpSend"
+  },
+  {
+    "name": "io.ktor.client.plugins.api.ClientPluginImpl"
+  },
+  {
+    "name": "io.ktor.client.plugins.api.ClientPluginInstance"
+  },
+  {
+    "name": "io.ktor.client.request.ResponseAdapter"
+  },
+  {
+    "name": "io.ktor.http.ContentType"
+  },
+  {
+    "name": "io.ktor.http.HttpStatusCode"
+  },
+  {
+    "name": "io.ktor.network.selector.InterestSuspensionsMap",
+    "fields": [
+      {
+        "name": "acceptHandlerReference"
+      },
+      {
+        "name": "connectHandlerReference"
+      },
+      {
+        "name": "readHandlerReference"
+      },
+      {
+        "name": "writeHandlerReference"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.network.selector.LockFreeMPSCQueue",
+    "fields": [
+      {
+        "name": "curRef"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.network.selector.LockFreeMPSCQueueCore",
+    "fields": [
+      {
+        "name": "nextRef"
+      },
+      {
+        "name": "stateRef"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.network.selector.SelectableBase",
+    "fields": [
+      {
+        "name": "_interestedOps"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.network.sockets.SocketBase",
+    "fields": [
+      {
+        "name": "actualCloseFlag"
+      },
+      {
+        "name": "closeFlag"
+      },
+      {
+        "name": "readerJob"
+      },
+      {
+        "name": "writerJob"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.server.application.Application"
+  },
+  {
+    "name": "io.ktor.server.application.PluginInstance"
+  },
+  {
+    "name": "io.ktor.server.engine.BaseApplicationResponse"
+  },
+  {
+    "name": "io.ktor.server.plugins.MutableOriginConnectionPoint"
+  },
+  {
+    "name": "io.ktor.server.request.DoubleReceivePreventionToken"
+  },
+  {
+    "name": "io.ktor.server.routing.RoutingCall"
+  },
+  {
+    "name": "io.ktor.server.routing.RoutingRoot"
+  },
+  {
+    "name": "io.ktor.util.Attributes"
+  },
+  {
+    "name": "io.ktor.util.collections.CopyOnWriteHashMap",
+    "fields": [
+      {
+        "name": "current"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.util.internal.LockFreeLinkedListNode",
+    "fields": [
+      {
+        "name": "_next"
+      },
+      {
+        "name": "_prev"
+      },
+      {
+        "name": "removedRef"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.util.reflect.TypeInfo"
+  },
+  {
+    "name": "io.ktor.utils.io.ByteChannel",
+    "fields": [
+      {
+        "name": "_closedCause"
+      },
+      {
+        "name": "suspensionSlot"
+      }
+    ]
+  },
+  {
+    "name": "io.ktor.utils.io.pool.DefaultPool",
+    "fields": [
+      {
+        "name": "top"
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.AbstractRedisAsyncCommands",
+    "methods": [
+      {
+        "name": "aclCat",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclCat",
+        "parameterTypes": [
+          "io.lettuce.core.AclCategory"
+        ]
+      },
+      {
+        "name": "aclDeluser",
+        "parameterTypes": [
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "aclDryRun",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.protocol.RedisCommand"
+        ]
+      },
+      {
+        "name": "aclDryRun",
+        "parameterTypes": [
+          "java.lang.String",
+          "java.lang.String",
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "aclGenpass",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclGenpass",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "aclGetuser",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "aclList",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclLoad",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclLog",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclLog",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "aclLogReset",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclSave",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclSetuser",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.AclSetuserArgs"
+        ]
+      },
+      {
+        "name": "aclUsers",
+        "parameterTypes": []
+      },
+      {
+        "name": "aclWhoami",
+        "parameterTypes": []
+      },
+      {
+        "name": "append",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "asking",
+        "parameterTypes": []
+      },
+      {
+        "name": "auth",
+        "parameterTypes": [
+          "java.lang.CharSequence"
+        ]
+      },
+      {
+        "name": "auth",
+        "parameterTypes": [
+          "java.lang.String",
+          "java.lang.CharSequence"
+        ]
+      },
+      {
+        "name": "bgrewriteaof",
+        "parameterTypes": []
+      },
+      {
+        "name": "bgsave",
+        "parameterTypes": []
+      },
+      {
+        "name": "bitcount",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "bitcount",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "bitfield",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.BitFieldArgs"
+        ]
+      },
+      {
+        "name": "bitopAnd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bitopNot",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "bitopOr",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bitopXor",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bitpos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "boolean"
+        ]
+      },
+      {
+        "name": "bitpos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "boolean",
+          "long"
+        ]
+      },
+      {
+        "name": "bitpos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "boolean",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "blmove",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.LMoveArgs",
+          "double"
+        ]
+      },
+      {
+        "name": "blmove",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.LMoveArgs",
+          "long"
+        ]
+      },
+      {
+        "name": "blmpop",
+        "parameterTypes": [
+          "double",
+          "io.lettuce.core.LMPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "blmpop",
+        "parameterTypes": [
+          "long",
+          "io.lettuce.core.LMPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "blpop",
+        "parameterTypes": [
+          "double",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "blpop",
+        "parameterTypes": [
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "brpop",
+        "parameterTypes": [
+          "double",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "brpop",
+        "parameterTypes": [
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "brpoplpush",
+        "parameterTypes": [
+          "double",
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "brpoplpush",
+        "parameterTypes": [
+          "long",
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "bzmpop",
+        "parameterTypes": [
+          "double",
+          "int",
+          "io.lettuce.core.ZPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bzmpop",
+        "parameterTypes": [
+          "double",
+          "io.lettuce.core.ZPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bzmpop",
+        "parameterTypes": [
+          "long",
+          "long",
+          "io.lettuce.core.ZPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bzmpop",
+        "parameterTypes": [
+          "long",
+          "io.lettuce.core.ZPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bzpopmax",
+        "parameterTypes": [
+          "double",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bzpopmax",
+        "parameterTypes": [
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bzpopmin",
+        "parameterTypes": [
+          "double",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "bzpopmin",
+        "parameterTypes": [
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "clientCaching",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "clientGetname",
+        "parameterTypes": []
+      },
+      {
+        "name": "clientGetredir",
+        "parameterTypes": []
+      },
+      {
+        "name": "clientId",
+        "parameterTypes": []
+      },
+      {
+        "name": "clientInfo",
+        "parameterTypes": []
+      },
+      {
+        "name": "clientKill",
+        "parameterTypes": [
+          "io.lettuce.core.KillArgs"
+        ]
+      },
+      {
+        "name": "clientKill",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clientList",
+        "parameterTypes": []
+      },
+      {
+        "name": "clientList",
+        "parameterTypes": [
+          "io.lettuce.core.ClientListArgs"
+        ]
+      },
+      {
+        "name": "clientNoEvict",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "clientPause",
+        "parameterTypes": [
+          "long"
+        ]
+      },
+      {
+        "name": "clientSetinfo",
+        "parameterTypes": [
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clientSetname",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "clientTracking",
+        "parameterTypes": [
+          "io.lettuce.core.TrackingArgs"
+        ]
+      },
+      {
+        "name": "clientTrackinginfo",
+        "parameterTypes": []
+      },
+      {
+        "name": "clientUnblock",
+        "parameterTypes": [
+          "long",
+          "io.lettuce.core.UnblockType"
+        ]
+      },
+      {
+        "name": "clusterAddSlots",
+        "parameterTypes": [
+          "int[]"
+        ]
+      },
+      {
+        "name": "clusterAddSlotsRange",
+        "parameterTypes": [
+          "io.lettuce.core.Range[]"
+        ]
+      },
+      {
+        "name": "clusterBumpepoch",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterCountFailureReports",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterCountKeysInSlot",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "clusterDelSlots",
+        "parameterTypes": [
+          "int[]"
+        ]
+      },
+      {
+        "name": "clusterDelSlotsRange",
+        "parameterTypes": [
+          "io.lettuce.core.Range[]"
+        ]
+      },
+      {
+        "name": "clusterFailover",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "clusterFailover",
+        "parameterTypes": [
+          "boolean",
+          "boolean"
+        ]
+      },
+      {
+        "name": "clusterFlushslots",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterForget",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterGetKeysInSlot",
+        "parameterTypes": [
+          "int",
+          "int"
+        ]
+      },
+      {
+        "name": "clusterInfo",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterKeyslot",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "clusterLinks",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterMeet",
+        "parameterTypes": [
+          "java.lang.String",
+          "int"
+        ]
+      },
+      {
+        "name": "clusterMyId",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterMyShardId",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterNodes",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterReplicas",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterReplicate",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterReset",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "clusterSaveconfig",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterSetConfigEpoch",
+        "parameterTypes": [
+          "long"
+        ]
+      },
+      {
+        "name": "clusterSetSlotImporting",
+        "parameterTypes": [
+          "int",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterSetSlotMigrating",
+        "parameterTypes": [
+          "int",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterSetSlotNode",
+        "parameterTypes": [
+          "int",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterSetSlotStable",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "clusterShards",
+        "parameterTypes": []
+      },
+      {
+        "name": "clusterSlaves",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "clusterSlots",
+        "parameterTypes": []
+      },
+      {
+        "name": "command",
+        "parameterTypes": []
+      },
+      {
+        "name": "commandCount",
+        "parameterTypes": []
+      },
+      {
+        "name": "commandInfo",
+        "parameterTypes": [
+          "io.lettuce.core.protocol.CommandType[]"
+        ]
+      },
+      {
+        "name": "commandInfo",
+        "parameterTypes": [
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "configGet",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "configGet",
+        "parameterTypes": [
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "configResetstat",
+        "parameterTypes": []
+      },
+      {
+        "name": "configRewrite",
+        "parameterTypes": []
+      },
+      {
+        "name": "configSet",
+        "parameterTypes": [
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "configSet",
+        "parameterTypes": [
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "copy",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "copy",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.CopyArgs"
+        ]
+      },
+      {
+        "name": "dbsize",
+        "parameterTypes": []
+      },
+      {
+        "name": "debugCrashAndRecover",
+        "parameterTypes": [
+          "java.lang.Long"
+        ]
+      },
+      {
+        "name": "debugHtstats",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "debugObject",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "debugOom",
+        "parameterTypes": []
+      },
+      {
+        "name": "debugReload",
+        "parameterTypes": []
+      },
+      {
+        "name": "debugRestart",
+        "parameterTypes": [
+          "java.lang.Long"
+        ]
+      },
+      {
+        "name": "debugSdslen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "debugSegfault",
+        "parameterTypes": []
+      },
+      {
+        "name": "decr",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "decrby",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "del",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "digest",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "digest",
+        "parameterTypes": [
+          "byte[]"
+        ]
+      },
+      {
+        "name": "discard",
+        "parameterTypes": []
+      },
+      {
+        "name": "dispatch",
+        "parameterTypes": [
+          "io.lettuce.core.protocol.ProtocolKeyword",
+          "io.lettuce.core.output.CommandOutput"
+        ]
+      },
+      {
+        "name": "dispatch",
+        "parameterTypes": [
+          "io.lettuce.core.protocol.ProtocolKeyword",
+          "io.lettuce.core.output.CommandOutput",
+          "io.lettuce.core.protocol.CommandArgs"
+        ]
+      },
+      {
+        "name": "dump",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "echo",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "eval",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "eval",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "eval",
+        "parameterTypes": [
+          "byte[]",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "eval",
+        "parameterTypes": [
+          "byte[]",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "evalReadOnly",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "evalReadOnly",
+        "parameterTypes": [
+          "byte[]",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "evalsha",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "evalsha",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "evalshaReadOnly",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "exec",
+        "parameterTypes": []
+      },
+      {
+        "name": "exists",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "expire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "expire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "expire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "expire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "expireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "expireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "expireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant"
+        ]
+      },
+      {
+        "name": "expireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "expireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date"
+        ]
+      },
+      {
+        "name": "expireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "expiretime",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "fcall",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "fcall",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "fcallReadOnly",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "fcallReadOnly",
+        "parameterTypes": [
+          "java.lang.String",
+          "io.lettuce.core.ScriptOutputType",
+          "java.lang.Object[]",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "flushall",
+        "parameterTypes": []
+      },
+      {
+        "name": "flushall",
+        "parameterTypes": [
+          "io.lettuce.core.FlushMode"
+        ]
+      },
+      {
+        "name": "flushallAsync",
+        "parameterTypes": []
+      },
+      {
+        "name": "flushdb",
+        "parameterTypes": []
+      },
+      {
+        "name": "flushdb",
+        "parameterTypes": [
+          "io.lettuce.core.FlushMode"
+        ]
+      },
+      {
+        "name": "flushdbAsync",
+        "parameterTypes": []
+      },
+      {
+        "name": "functionDump",
+        "parameterTypes": []
+      },
+      {
+        "name": "functionFlush",
+        "parameterTypes": [
+          "io.lettuce.core.FlushMode"
+        ]
+      },
+      {
+        "name": "functionKill",
+        "parameterTypes": []
+      },
+      {
+        "name": "functionList",
+        "parameterTypes": []
+      },
+      {
+        "name": "functionList",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "functionLoad",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "functionLoad",
+        "parameterTypes": [
+          "java.lang.String",
+          "boolean"
+        ]
+      },
+      {
+        "name": "functionRestore",
+        "parameterTypes": [
+          "byte[]"
+        ]
+      },
+      {
+        "name": "functionRestore",
+        "parameterTypes": [
+          "byte[]",
+          "io.lettuce.core.FunctionRestoreMode"
+        ]
+      },
+      {
+        "name": "geoadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "geoadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "java.lang.Object",
+          "io.lettuce.core.GeoAddArgs"
+        ]
+      },
+      {
+        "name": "geoadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.GeoAddArgs",
+          "io.lettuce.core.GeoValue[]"
+        ]
+      },
+      {
+        "name": "geoadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.GeoAddArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "geoadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.GeoValue[]"
+        ]
+      },
+      {
+        "name": "geoadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "geodist",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.GeoArgs$Unit"
+        ]
+      },
+      {
+        "name": "geohash",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "geopos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "georadius",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "double",
+          "io.lettuce.core.GeoArgs$Unit"
+        ]
+      },
+      {
+        "name": "georadius",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "double",
+          "io.lettuce.core.GeoArgs$Unit",
+          "io.lettuce.core.GeoArgs"
+        ]
+      },
+      {
+        "name": "georadius",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "double",
+          "io.lettuce.core.GeoArgs$Unit",
+          "io.lettuce.core.GeoRadiusStoreArgs"
+        ]
+      },
+      {
+        "name": "georadiusbymember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "double",
+          "io.lettuce.core.GeoArgs$Unit"
+        ]
+      },
+      {
+        "name": "georadiusbymember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "double",
+          "io.lettuce.core.GeoArgs$Unit",
+          "io.lettuce.core.GeoArgs"
+        ]
+      },
+      {
+        "name": "georadiusbymember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "double",
+          "io.lettuce.core.GeoArgs$Unit",
+          "io.lettuce.core.GeoRadiusStoreArgs"
+        ]
+      },
+      {
+        "name": "geosearch",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.GeoSearch$GeoRef",
+          "io.lettuce.core.GeoSearch$GeoPredicate"
+        ]
+      },
+      {
+        "name": "geosearch",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.GeoSearch$GeoRef",
+          "io.lettuce.core.GeoSearch$GeoPredicate",
+          "io.lettuce.core.GeoArgs"
+        ]
+      },
+      {
+        "name": "geosearchstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.GeoSearch$GeoRef",
+          "io.lettuce.core.GeoSearch$GeoPredicate",
+          "io.lettuce.core.GeoArgs",
+          "boolean"
+        ]
+      },
+      {
+        "name": "get",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "getJsonParser",
+        "parameterTypes": []
+      },
+      {
+        "name": "getbit",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "getdel",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "getex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.GetExArgs"
+        ]
+      },
+      {
+        "name": "getrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "getset",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hdel",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexists",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hexpiretime",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hget",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hgetall",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hgetall",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hgetdel",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hgetdel",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hgetex",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.HGetExArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hgetex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.HGetExArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hgetex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hincrby",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "hincrbyfloat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "double"
+        ]
+      },
+      {
+        "name": "hkeys",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hkeys",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hlen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hmget",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hmget",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hmset",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "hpersist",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date",
+          "io.lettuce.core.ExpireArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpexpiretime",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hpttl",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hrandfield",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hrandfield",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "hrandfieldWithvalues",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hrandfieldWithvalues",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "hscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "hscanNovalues",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "hset",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hset",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "hsetex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.HSetExArgs",
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "hsetex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "hsetnx",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hstrlen",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "httl",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "hvals",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "hvals",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "incr",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "incrby",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "incrbyfloat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double"
+        ]
+      },
+      {
+        "name": "info",
+        "parameterTypes": []
+      },
+      {
+        "name": "info",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "isOpen",
+        "parameterTypes": []
+      },
+      {
+        "name": "jsonArrappend",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.JsonValue[]"
+        ]
+      },
+      {
+        "name": "jsonArrappend",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonValue[]"
+        ]
+      },
+      {
+        "name": "jsonArrindex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.JsonValue"
+        ]
+      },
+      {
+        "name": "jsonArrindex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.JsonValue",
+          "io.lettuce.core.json.arguments.JsonRangeArgs"
+        ]
+      },
+      {
+        "name": "jsonArrinsert",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "int",
+          "io.lettuce.core.json.JsonValue[]"
+        ]
+      },
+      {
+        "name": "jsonArrlen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonArrlen",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonArrpop",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonArrpop",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonArrpop",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "int"
+        ]
+      },
+      {
+        "name": "jsonArrtrim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.arguments.JsonRangeArgs"
+        ]
+      },
+      {
+        "name": "jsonClear",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonClear",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonDel",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonDel",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonGet",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.arguments.JsonGetArgs",
+          "io.lettuce.core.json.JsonPath[]"
+        ]
+      },
+      {
+        "name": "jsonGet",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath[]"
+        ]
+      },
+      {
+        "name": "jsonMGet",
+        "parameterTypes": [
+          "io.lettuce.core.json.JsonPath",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "jsonMSet",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "jsonMerge",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.JsonValue"
+        ]
+      },
+      {
+        "name": "jsonNumincrby",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "java.lang.Number"
+        ]
+      },
+      {
+        "name": "jsonObjkeys",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonObjkeys",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonObjlen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonObjlen",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonSet",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.JsonValue"
+        ]
+      },
+      {
+        "name": "jsonSet",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.JsonValue",
+          "io.lettuce.core.json.arguments.JsonSetArgs"
+        ]
+      },
+      {
+        "name": "jsonStrappend",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath",
+          "io.lettuce.core.json.JsonValue"
+        ]
+      },
+      {
+        "name": "jsonStrappend",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonValue"
+        ]
+      },
+      {
+        "name": "jsonStrlen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonStrlen",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonToggle",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "jsonType",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "jsonType",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonPath"
+        ]
+      },
+      {
+        "name": "keys",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "keys",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "lastsave",
+        "parameterTypes": []
+      },
+      {
+        "name": "lcs",
+        "parameterTypes": [
+          "io.lettuce.core.LcsArgs"
+        ]
+      },
+      {
+        "name": "lindex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "linsert",
+        "parameterTypes": [
+          "java.lang.Object",
+          "boolean",
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "llen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "lmove",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.LMoveArgs"
+        ]
+      },
+      {
+        "name": "lmpop",
+        "parameterTypes": [
+          "io.lettuce.core.LMPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "lpop",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "lpop",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "lpos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "lpos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "int"
+        ]
+      },
+      {
+        "name": "lpos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "int",
+          "io.lettuce.core.LPosArgs"
+        ]
+      },
+      {
+        "name": "lpos",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.LPosArgs"
+        ]
+      },
+      {
+        "name": "lpush",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "lpushx",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "lrange",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "lrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "lrem",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "lset",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "ltrim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "memoryUsage",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "mget",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyValueStreamingChannel",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "mget",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "migrate",
+        "parameterTypes": [
+          "java.lang.String",
+          "int",
+          "int",
+          "long",
+          "io.lettuce.core.MigrateArgs"
+        ]
+      },
+      {
+        "name": "migrate",
+        "parameterTypes": [
+          "java.lang.String",
+          "int",
+          "java.lang.Object",
+          "int",
+          "long"
+        ]
+      },
+      {
+        "name": "move",
+        "parameterTypes": [
+          "java.lang.Object",
+          "int"
+        ]
+      },
+      {
+        "name": "mset",
+        "parameterTypes": [
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "msetnx",
+        "parameterTypes": [
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "multi",
+        "parameterTypes": []
+      },
+      {
+        "name": "objectEncoding",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "objectFreq",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "objectIdletime",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "objectRefcount",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "persist",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "pexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "pexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "pexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "pexpire",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Duration",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "pexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "pexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "pexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant"
+        ]
+      },
+      {
+        "name": "pexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.time.Instant",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "pexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date"
+        ]
+      },
+      {
+        "name": "pexpireat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Date",
+          "io.lettuce.core.ExpireArgs"
+        ]
+      },
+      {
+        "name": "pexpiretime",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "pfadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "pfcount",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "pfmerge",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "ping",
+        "parameterTypes": []
+      },
+      {
+        "name": "psetex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "pttl",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "publish",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "pubsubChannels",
+        "parameterTypes": []
+      },
+      {
+        "name": "pubsubChannels",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "pubsubNumpat",
+        "parameterTypes": []
+      },
+      {
+        "name": "pubsubNumsub",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "pubsubShardChannels",
+        "parameterTypes": []
+      },
+      {
+        "name": "pubsubShardChannels",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "pubsubShardNumsub",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "quit",
+        "parameterTypes": []
+      },
+      {
+        "name": "randomkey",
+        "parameterTypes": []
+      },
+      {
+        "name": "readOnly",
+        "parameterTypes": []
+      },
+      {
+        "name": "readWrite",
+        "parameterTypes": []
+      },
+      {
+        "name": "rename",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "renamenx",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "replicaof",
+        "parameterTypes": [
+          "java.lang.String",
+          "int"
+        ]
+      },
+      {
+        "name": "replicaofNoOne",
+        "parameterTypes": []
+      },
+      {
+        "name": "reset",
+        "parameterTypes": []
+      },
+      {
+        "name": "restore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "byte[]"
+        ]
+      },
+      {
+        "name": "restore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "byte[]",
+          "io.lettuce.core.RestoreArgs"
+        ]
+      },
+      {
+        "name": "role",
+        "parameterTypes": []
+      },
+      {
+        "name": "rpop",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "rpop",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "rpoplpush",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "rpush",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "rpushx",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "save",
+        "parameterTypes": []
+      },
+      {
+        "name": "scan",
+        "parameterTypes": []
+      },
+      {
+        "name": "scan",
+        "parameterTypes": [
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "scan",
+        "parameterTypes": [
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "scan",
+        "parameterTypes": [
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "scan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel"
+        ]
+      },
+      {
+        "name": "scan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "scan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "scan",
+        "parameterTypes": [
+          "io.lettuce.core.output.KeyStreamingChannel",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "scard",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "scriptExists",
+        "parameterTypes": [
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "scriptFlush",
+        "parameterTypes": []
+      },
+      {
+        "name": "scriptFlush",
+        "parameterTypes": [
+          "io.lettuce.core.FlushMode"
+        ]
+      },
+      {
+        "name": "scriptKill",
+        "parameterTypes": []
+      },
+      {
+        "name": "scriptLoad",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "scriptLoad",
+        "parameterTypes": [
+          "byte[]"
+        ]
+      },
+      {
+        "name": "sdiff",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sdiff",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sdiffstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "select",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "set",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "set",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.SetArgs"
+        ]
+      },
+      {
+        "name": "setGet",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "setGet",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.SetArgs"
+        ]
+      },
+      {
+        "name": "setTimeout",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setbit",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "int"
+        ]
+      },
+      {
+        "name": "setex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "setnx",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "setrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "shutdown",
+        "parameterTypes": [
+          "io.lettuce.core.ShutdownArgs"
+        ]
+      },
+      {
+        "name": "shutdown",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "sinter",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sinter",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sintercard",
+        "parameterTypes": [
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sintercard",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sinterstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sismember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "slaveof",
+        "parameterTypes": [
+          "java.lang.String",
+          "int"
+        ]
+      },
+      {
+        "name": "slaveofNoOne",
+        "parameterTypes": []
+      },
+      {
+        "name": "slowlogGet",
+        "parameterTypes": []
+      },
+      {
+        "name": "slowlogGet",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "slowlogLen",
+        "parameterTypes": []
+      },
+      {
+        "name": "slowlogReset",
+        "parameterTypes": []
+      },
+      {
+        "name": "smembers",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "smembers",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "smismember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "smove",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sort",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sort",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.SortArgs"
+        ]
+      },
+      {
+        "name": "sort",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sort",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.SortArgs"
+        ]
+      },
+      {
+        "name": "sortReadOnly",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sortReadOnly",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.SortArgs"
+        ]
+      },
+      {
+        "name": "sortReadOnly",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sortReadOnly",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.SortArgs"
+        ]
+      },
+      {
+        "name": "sortStore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.SortArgs",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "spop",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "spop",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "spublish",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "srandmember",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "srandmember",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "srandmember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "srem",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "sscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "stralgoLcs",
+        "parameterTypes": [
+          "io.lettuce.core.StrAlgoArgs"
+        ]
+      },
+      {
+        "name": "strlen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "sunion",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sunion",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "sunionstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "swapdb",
+        "parameterTypes": [
+          "int",
+          "int"
+        ]
+      },
+      {
+        "name": "time",
+        "parameterTypes": []
+      },
+      {
+        "name": "touch",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "ttl",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "type",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "unlink",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "unwatch",
+        "parameterTypes": []
+      },
+      {
+        "name": "vClearAttributes",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "int",
+          "java.lang.Object",
+          "io.lettuce.core.VAddArgs",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "vadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "int",
+          "java.lang.Object",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "vadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.VAddArgs",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "vadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "vcard",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vdim",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vemb",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vembRaw",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vgetattr",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vgetattrAsJsonValue",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vinfo",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vlinks",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vlinksWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vrandmember",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vrandmember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "int"
+        ]
+      },
+      {
+        "name": "vrem",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vsetattr",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.json.JsonValue"
+        ]
+      },
+      {
+        "name": "vsetattr",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "vsim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.VSimArgs",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vsim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.VSimArgs",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "vsim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vsim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "vsimWithScore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.VSimArgs",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vsimWithScore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.VSimArgs",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "vsimWithScore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "vsimWithScore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Double[]"
+        ]
+      },
+      {
+        "name": "waitForReplication",
+        "parameterTypes": [
+          "int",
+          "long"
+        ]
+      },
+      {
+        "name": "watch",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "xack",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "xadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.XAddArgs",
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "xadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.XAddArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "xadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "xadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "xautoclaim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.XAutoClaimArgs"
+        ]
+      },
+      {
+        "name": "xclaim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Consumer",
+          "long",
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "xclaim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Consumer",
+          "io.lettuce.core.XClaimArgs",
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "xdel",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String[]"
+        ]
+      },
+      {
+        "name": "xgroupCreate",
+        "parameterTypes": [
+          "io.lettuce.core.XReadArgs$StreamOffset",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xgroupCreate",
+        "parameterTypes": [
+          "io.lettuce.core.XReadArgs$StreamOffset",
+          "java.lang.Object",
+          "io.lettuce.core.XGroupCreateArgs"
+        ]
+      },
+      {
+        "name": "xgroupCreateconsumer",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Consumer"
+        ]
+      },
+      {
+        "name": "xgroupDelconsumer",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Consumer"
+        ]
+      },
+      {
+        "name": "xgroupDestroy",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xgroupSetid",
+        "parameterTypes": [
+          "io.lettuce.core.XReadArgs$StreamOffset",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xinfoConsumers",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xinfoGroups",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xinfoStream",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xlen",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xpending",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Consumer",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "xpending",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.XPendingArgs"
+        ]
+      },
+      {
+        "name": "xpending",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "xpending",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "xrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "xrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "xread",
+        "parameterTypes": [
+          "io.lettuce.core.XReadArgs",
+          "io.lettuce.core.XReadArgs$StreamOffset[]"
+        ]
+      },
+      {
+        "name": "xread",
+        "parameterTypes": [
+          "io.lettuce.core.XReadArgs$StreamOffset[]"
+        ]
+      },
+      {
+        "name": "xreadgroup",
+        "parameterTypes": [
+          "io.lettuce.core.Consumer",
+          "io.lettuce.core.XReadArgs",
+          "io.lettuce.core.XReadArgs$StreamOffset[]"
+        ]
+      },
+      {
+        "name": "xreadgroup",
+        "parameterTypes": [
+          "io.lettuce.core.Consumer",
+          "io.lettuce.core.XReadArgs$StreamOffset[]"
+        ]
+      },
+      {
+        "name": "xrevrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "xrevrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "xtrim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "xtrim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.XTrimArgs"
+        ]
+      },
+      {
+        "name": "xtrim",
+        "parameterTypes": [
+          "java.lang.Object",
+          "boolean",
+          "long"
+        ]
+      },
+      {
+        "name": "zadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ZAddArgs",
+          "double",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ZAddArgs",
+          "io.lettuce.core.ScoredValue[]"
+        ]
+      },
+      {
+        "name": "zadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ZAddArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScoredValue[]"
+        ]
+      },
+      {
+        "name": "zadd",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zaddincr",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zaddincr",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ZAddArgs",
+          "double",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zcard",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zcount",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zcount",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zcount",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zdiff",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zdiffWithScores",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zdiffstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zincrby",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zinter",
+        "parameterTypes": [
+          "io.lettuce.core.ZAggregateArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zinter",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zinterWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.ZAggregateArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zinterWithScores",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zintercard",
+        "parameterTypes": [
+          "long",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zintercard",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zinterstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ZStoreArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zinterstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zlexcount",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zlexcount",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zmpop",
+        "parameterTypes": [
+          "int",
+          "io.lettuce.core.ZPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zmpop",
+        "parameterTypes": [
+          "io.lettuce.core.ZPopArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zmscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zpopmax",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zpopmax",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "zpopmin",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zpopmin",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "zrandmember",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zrandmember",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "zrandmemberWithScores",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zrandmemberWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "zrange",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangeWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangeWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrangestore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrangestorebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrangestorebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrank",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zrankWithScore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zrem",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zremrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zremrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zremrangebyrank",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zremrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zremrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zremrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrevrange",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrange",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangeWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangeWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrevrangebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "io.lettuce.core.output.ValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrevrangebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "double",
+          "double",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "zrevrangebyscoreWithScores",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.String",
+          "java.lang.String",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "zrevrangestore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.Range"
+        ]
+      },
+      {
+        "name": "zrevrangestorebylex",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrevrangestorebyscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object",
+          "io.lettuce.core.Range",
+          "io.lettuce.core.Limit"
+        ]
+      },
+      {
+        "name": "zrevrank",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zrevrankWithScore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "io.lettuce.core.output.ScoredValueStreamingChannel",
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor"
+        ]
+      },
+      {
+        "name": "zscan",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ScanCursor",
+          "io.lettuce.core.ScanArgs"
+        ]
+      },
+      {
+        "name": "zscore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "zunion",
+        "parameterTypes": [
+          "io.lettuce.core.ZAggregateArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zunion",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zunionWithScores",
+        "parameterTypes": [
+          "io.lettuce.core.ZAggregateArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zunionWithScores",
+        "parameterTypes": [
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zunionstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "io.lettuce.core.ZStoreArgs",
+          "java.lang.Object[]"
+        ]
+      },
+      {
+        "name": "zunionstore",
+        "parameterTypes": [
+          "java.lang.Object",
+          "java.lang.Object[]"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.ChannelGroupListener",
+    "methods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.ConnectionBuilder$PlainChannelInitializer",
+    "methods": [
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.ConnectionEventTrigger",
+    "methods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.RedisAsyncCommandsImpl",
+    "methods": [
+      {
+        "name": "getStatefulConnection",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.RedisChannelHandler",
+    "fields": [
+      {
+        "name": "closed"
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.api.sync.BaseRedisCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisAclCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisFunctionCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisGeoCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisHLLCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisHashCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisJsonCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisKeyCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisListCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisScriptingCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisServerCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisSetCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisSortedSetCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisStreamCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisStringCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisTransactionalCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.api.sync.RedisVectorSetCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.cluster.api.sync.RedisClusterCommands",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.lettuce.core.event.connection.JfrConnectEvent",
+    "queryAllDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "io.lettuce.core.event.connection.ConnectEvent"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.event.connection.JfrConnectedEvent",
+    "queryAllDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "io.lettuce.core.event.connection.ConnectionEventSupport"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.event.connection.JfrConnectionActivatedEvent",
+    "queryAllDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "io.lettuce.core.event.connection.ConnectionEventSupport"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.event.connection.JfrConnectionCreatedEvent",
+    "queryAllDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "io.lettuce.core.event.connection.ConnectionCreatedEvent"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.event.connection.JfrConnectionDeactivatedEvent",
+    "queryAllDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "io.lettuce.core.event.connection.ConnectionEventSupport"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.event.connection.JfrDisconnectedEvent",
+    "queryAllDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "io.lettuce.core.event.connection.ConnectionEventSupport"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.metrics.DefaultCommandLatencyCollector",
+    "fields": [
+      {
+        "name": "pauseDetectorWrapper"
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.protocol.AsyncCommand",
+    "fields": [
+      {
+        "name": "count"
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.protocol.CommandEncoder"
+  },
+  {
+    "name": "io.lettuce.core.protocol.CommandHandler",
+    "methods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "channelRegistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelUnregistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      },
+      {
+        "name": "userEventTriggered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "write",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object",
+          "io.netty.channel.ChannelPromise"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.protocol.CommandWrapper",
+    "fields": [
+      {
+        "name": "onComplete"
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.protocol.ConnectionWatchdog",
+    "methods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.protocol.DefaultEndpoint",
+    "fields": [
+      {
+        "name": "queueSize"
+      },
+      {
+        "name": "status"
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.protocol.RedisHandshakeHandler",
+    "methods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRegistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.lettuce.core.protocol.SharedLock",
+    "fields": [
+      {
+        "name": "writers"
+      }
+    ]
+  },
+  {
+    "name": "io.micrometer.context.ContextRegistry"
+  },
+  {
+    "name": "io.netty.buffer.AbstractByteBufAllocator",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.netty.buffer.AbstractReferenceCountedByteBuf",
+    "fields": [
+      {
+        "name": "refCnt"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.AbstractChannelHandlerContext",
+    "fields": [
+      {
+        "name": "handlerState"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.ChannelDuplexHandler",
+    "methods": [
+      {
+        "name": "bind",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "close",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "connect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "deregister",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "disconnect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "flush",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "read",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.ChannelHandlerAdapter",
+    "methods": [
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.ChannelInboundHandlerAdapter",
+    "methods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "channelReadComplete",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRegistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelUnregistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelWritabilityChanged",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      },
+      {
+        "name": "userEventTriggered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.ChannelInitializer",
+    "methods": [
+      {
+        "name": "channelRegistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.ChannelOutboundBuffer",
+    "fields": [
+      {
+        "name": "totalPendingSize"
+      },
+      {
+        "name": "unwritable"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.ChannelOutboundHandlerAdapter",
+    "methods": [
+      {
+        "name": "bind",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "close",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "connect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "deregister",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "disconnect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "flush",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "read",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.DefaultChannelConfig",
+    "fields": [
+      {
+        "name": "autoRead"
+      },
+      {
+        "name": "writeBufferWaterMark"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.DefaultChannelPipeline",
+    "fields": [
+      {
+        "name": "estimatorHandle"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.DefaultChannelPipeline$HeadContext",
+    "methods": [
+      {
+        "name": "bind",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "channelReadComplete",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRegistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelUnregistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelWritabilityChanged",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "close",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "connect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "deregister",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "disconnect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      },
+      {
+        "name": "flush",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "read",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "userEventTriggered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "write",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object",
+          "io.netty.channel.ChannelPromise"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.DefaultChannelPipeline$TailContext",
+    "methods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "channelReadComplete",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRegistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelUnregistered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelWritabilityChanged",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      },
+      {
+        "name": "userEventTriggered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.epoll.Epoll"
+  },
+  {
+    "name": "io.netty.channel.kqueue.KQueue"
+  },
+  {
+    "name": "io.netty.channel.socket.nio.NioDatagramChannel",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.socket.nio.NioSocketChannel",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "io.netty.handler.codec.MessageToByteEncoder",
+    "methods": [
+      {
+        "name": "write",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object",
+          "io.netty.channel.ChannelPromise"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.handler.codec.MessageToMessageDecoder",
+    "methods": [
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "channelReadComplete",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.handler.codec.MessageToMessageEncoder",
+    "methods": [
+      {
+        "name": "write",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object",
+          "io.netty.channel.ChannelPromise"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.handler.codec.dns.DatagramDnsQueryEncoder"
+  },
+  {
+    "name": "io.netty.incubator.channel.uring.IOUring"
+  },
+  {
+    "name": "io.netty.resolver.dns.Cache$Entries",
+    "fields": [
+      {
+        "name": "expirationFuture"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.resolver.dns.DnsNameResolver$2"
+  },
+  {
+    "name": "io.netty.resolver.dns.DnsNameResolver$3"
+  },
+  {
+    "name": "io.netty.resolver.dns.DnsNameResolver$DnsResponseHandler",
+    "methods": [
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.DefaultAttributeMap",
+    "fields": [
+      {
+        "name": "attributes"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.DefaultAttributeMap$DefaultAttribute",
+    "fields": [
+      {
+        "name": "attributeMap"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.HashedWheelTimer",
+    "fields": [
+      {
+        "name": "workerState"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.HashedWheelTimer$HashedWheelTimeout",
+    "fields": [
+      {
+        "name": "state"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.Recycler$DefaultHandle",
+    "fields": [
+      {
+        "name": "state"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.ReferenceCountUtil",
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.netty.util.ResourceLeakDetector$DefaultResourceLeak",
+    "fields": [
+      {
+        "name": "droppedRecords"
+      },
+      {
+        "name": "head"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.concurrent.DefaultPromise",
+    "fields": [
+      {
+        "name": "result"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.concurrent.SingleThreadEventExecutor",
+    "fields": [
+      {
+        "name": "state"
+      },
+      {
+        "name": "threadProperties"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueColdProducerFields",
+    "fields": [
+      {
+        "name": "producerLimit"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueConsumerFields",
+    "fields": [
+      {
+        "name": "consumerIndex"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueProducerFields",
+    "fields": [
+      {
+        "name": "producerIndex"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueConsumerIndexField",
+    "fields": [
+      {
+        "name": "consumerIndex"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueProducerIndexField",
+    "fields": [
+      {
+        "name": "producerIndex"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueProducerLimitField",
+    "fields": [
+      {
+        "name": "producerLimit"
+      }
+    ]
+  },
+  {
+    "name": "java.lang.Boolean"
+  },
+  {
+    "name": "java.lang.ClassValue"
+  },
+  {
+    "name": "java.lang.Object"
+  },
+  {
+    "name": "java.lang.ProcessHandle",
+    "methods": [
+      {
+        "name": "current",
+        "parameterTypes": []
+      },
+      {
+        "name": "pid",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "java.lang.String",
+    "allDeclaredClasses": true,
+    "fields": [
+      {
+        "name": "Companion"
+      }
+    ]
+  },
+  {
+    "name": "java.lang.Thread",
+    "fields": [
+      {
+        "name": "threadLocalRandomProbe"
+      }
+    ]
+  },
+  {
+    "name": "java.net.SocketOption"
+  },
+  {
+    "name": "java.net.StandardSocketOptions",
+    "fields": [
+      {
+        "name": "IP_MULTICAST_IF"
+      },
+      {
+        "name": "IP_MULTICAST_LOOP"
+      },
+      {
+        "name": "IP_MULTICAST_TTL"
+      }
+    ]
+  },
+  {
+    "name": "java.nio.Bits",
+    "fields": [
+      {
+        "name": "MAX_MEMORY"
+      },
+      {
+        "name": "UNALIGNED"
+      }
+    ]
+  },
+  {
+    "name": "java.nio.Buffer",
+    "fields": [
+      {
+        "name": "address"
+      }
+    ]
+  },
+  {
+    "name": "java.nio.ByteBuffer",
+    "methods": [
+      {
+        "name": "alignedSlice",
+        "parameterTypes": [
+          "int"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.nio.DirectByteBuffer",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "long",
+          "long"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.nio.channels.NetworkChannel",
+    "methods": [
+      {
+        "name": "getOption",
+        "parameterTypes": [
+          "java.net.SocketOption"
+        ]
+      },
+      {
+        "name": "setOption",
+        "parameterTypes": [
+          "java.net.SocketOption",
+          "java.lang.Object"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.nio.channels.spi.SelectorProvider",
+    "methods": [
+      {
+        "name": "openSocketChannel",
+        "parameterTypes": [
+          "java.net.ProtocolFamily"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.util.List"
+  },
+  {
+    "name": "java.util.Map"
+  },
+  {
+    "name": "java.util.concurrent.ForkJoinTask",
+    "fields": [
+      {
+        "name": "aux"
+      },
+      {
+        "name": "status"
+      }
+    ]
+  },
+  {
+    "name": "java.util.concurrent.atomic.AtomicBoolean",
+    "fields": [
+      {
+        "name": "value"
+      }
+    ]
+  },
+  {
+    "name": "java.util.concurrent.atomic.AtomicReference",
+    "fields": [
+      {
+        "name": "value"
+      }
+    ]
+  },
+  {
+    "name": "java.util.concurrent.atomic.Striped64",
+    "fields": [
+      {
+        "name": "base"
+      },
+      {
+        "name": "cellsBusy"
+      }
+    ]
+  },
+  {
+    "name": "jdk.internal.misc.Unsafe",
+    "methods": [
+      {
+        "name": "getUnsafe",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "jdk.jfr.Event"
+  },
+  {
+    "name": "kotlin.Any"
+  },
+  {
+    "name": "kotlin.Array"
+  },
+  {
+    "name": "kotlin.Boolean"
+  },
+  {
+    "name": "kotlin.Long"
+  },
+  {
+    "name": "kotlin.Metadata",
+    "queryAllDeclaredMethods": true,
+    "methods": [
+      {
+        "name": "bv",
+        "parameterTypes": []
+      },
+      {
+        "name": "d1",
+        "parameterTypes": []
+      },
+      {
+        "name": "d2",
+        "parameterTypes": []
+      },
+      {
+        "name": "k",
+        "parameterTypes": []
+      },
+      {
+        "name": "mv",
+        "parameterTypes": []
+      },
+      {
+        "name": "pn",
+        "parameterTypes": []
+      },
+      {
+        "name": "xi",
+        "parameterTypes": []
+      },
+      {
+        "name": "xs",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "kotlin.SafePublicationLazyImpl",
+    "fields": [
+      {
+        "name": "_value"
+      }
+    ]
+  },
+  {
+    "name": "kotlin.String"
+  },
+  {
+    "name": "kotlin.Unit"
+  },
+  {
+    "name": "kotlin.collections.List"
+  },
+  {
+    "name": "kotlin.collections.Map"
+  },
+  {
+    "name": "kotlin.collections.MutableMap"
+  },
+  {
+    "name": "kotlin.jvm.internal.DefaultConstructorMarker"
+  },
+  {
+    "name": "kotlin.reflect.jvm.internal.ReflectionFactoryImpl",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "kotlin.reflect.jvm.internal.impl.resolve.scopes.DescriptorKindFilter",
+    "allPublicFields": true
+  },
+  {
+    "name": "kotlinx.coroutines.CancellableContinuationImpl",
+    "fields": [
+      {
+        "name": "_decisionAndIndex$volatile"
+      },
+      {
+        "name": "_parentHandle$volatile"
+      },
+      {
+        "name": "_state$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.CancelledContinuation",
+    "fields": [
+      {
+        "name": "_resumed$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.CompletedExceptionally",
+    "fields": [
+      {
+        "name": "_handled$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.DispatchedCoroutine",
+    "fields": [
+      {
+        "name": "_decision$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.EventLoopImplBase",
+    "fields": [
+      {
+        "name": "_delayed$volatile"
+      },
+      {
+        "name": "_isCompleted$volatile"
+      },
+      {
+        "name": "_queue$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.InvokeOnCancelling",
+    "fields": [
+      {
+        "name": "_invoked$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.JobSupport",
+    "fields": [
+      {
+        "name": "_parentHandle$volatile"
+      },
+      {
+        "name": "_state$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.JobSupport$Finishing",
+    "fields": [
+      {
+        "name": "_exceptionsHolder$volatile"
+      },
+      {
+        "name": "_isCompleting$volatile"
+      },
+      {
+        "name": "_rootCause$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.channels.BufferedChannel",
+    "fields": [
+      {
+        "name": "_closeCause$volatile"
+      },
+      {
+        "name": "bufferEnd$volatile"
+      },
+      {
+        "name": "bufferEndSegment$volatile"
+      },
+      {
+        "name": "closeHandler$volatile"
+      },
+      {
+        "name": "completedExpandBuffersAndPauseFlag$volatile"
+      },
+      {
+        "name": "receiveSegment$volatile"
+      },
+      {
+        "name": "receivers$volatile"
+      },
+      {
+        "name": "sendSegment$volatile"
+      },
+      {
+        "name": "sendersAndCloseStatus$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.ConcurrentLinkedListNode",
+    "fields": [
+      {
+        "name": "_next$volatile"
+      },
+      {
+        "name": "_prev$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.DispatchedContinuation",
+    "fields": [
+      {
+        "name": "_reusableCancellableContinuation$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.LimitedDispatcher",
+    "fields": [
+      {
+        "name": "runningWorkers$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.LockFreeLinkedListNode",
+    "fields": [
+      {
+        "name": "_next$volatile"
+      },
+      {
+        "name": "_prev$volatile"
+      },
+      {
+        "name": "_removedRef$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.LockFreeTaskQueue",
+    "fields": [
+      {
+        "name": "_cur$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.LockFreeTaskQueueCore",
+    "fields": [
+      {
+        "name": "_next$volatile"
+      },
+      {
+        "name": "_state$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.Segment",
+    "fields": [
+      {
+        "name": "cleanedAndPointers$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.internal.ThreadSafeHeap",
+    "fields": [
+      {
+        "name": "_size$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.scheduling.CoroutineScheduler",
+    "fields": [
+      {
+        "name": "_isTerminated$volatile"
+      },
+      {
+        "name": "controlState$volatile"
+      },
+      {
+        "name": "parkedWorkersStack$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.scheduling.CoroutineScheduler$Worker",
+    "fields": [
+      {
+        "name": "workerCtl$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.scheduling.WorkQueue",
+    "fields": [
+      {
+        "name": "blockingTasksInBuffer$volatile"
+      },
+      {
+        "name": "consumerIndex$volatile"
+      },
+      {
+        "name": "lastScheduledTask$volatile"
+      },
+      {
+        "name": "producerIndex$volatile"
+      }
+    ]
+  },
+  {
+    "name": "kotlinx.coroutines.sync.SemaphoreAndMutexImpl",
+    "fields": [
+      {
+        "name": "_availablePermits$volatile"
+      },
+      {
+        "name": "deqIdx$volatile"
+      },
+      {
+        "name": "enqIdx$volatile"
+      },
+      {
+        "name": "head$volatile"
+      },
+      {
+        "name": "tail$volatile"
+      }
+    ]
+  },
+  {
+    "name": "org.HdrHistogram$Histogram"
+  },
+  {
+    "name": "org.HdrHistogram.Histogram"
+  },
+  {
+    "name": "org.LatencyUtils$PauseDetector"
+  },
+  {
+    "name": "org.LatencyUtils.PauseDetector"
+  },
+  {
+    "name": "reactor.core.publisher.LambdaMonoSubscriber",
+    "fields": [
+      {
+        "name": "subscription"
+      }
+    ]
+  },
+  {
+    "name": "reactor.core.publisher.MonoCallable$MonoCallableSubscription",
+    "fields": [
+      {
+        "name": "requestedOnce"
+      }
+    ]
+  },
+  {
+    "name": "reactor.core.publisher.SinkManyBestEffort",
+    "fields": [
+      {
+        "name": "subscribers"
+      }
+    ]
+  },
+  {
+    "name": "reactor.core.publisher.SinksSpecs$AbstractSerializedSink",
+    "fields": [
+      {
+        "name": "lockedAt"
+      },
+      {
+        "name": "wip"
+      }
+    ]
+  },
+  {
+    "name": "reactor.core.scheduler.DelegateServiceScheduler",
+    "fields": [
+      {
+        "name": "state"
+      }
+    ]
+  },
+  {
+    "name": "sun.misc.Unsafe",
+    "fields": [
+      {
+        "name": "theUnsafe"
+      }
+    ],
+    "methods": [
+      {
+        "name": "copyMemory",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "getAndAddLong",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "getAndSetObject",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "invokeCleaner",
+        "parameterTypes": [
+          "java.nio.ByteBuffer"
+        ]
+      },
+      {
+        "name": "storeFence",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "sun.nio.ch.SelectorImpl",
+    "fields": [
+      {
+        "name": "publicSelectedKeys"
+      },
+      {
+        "name": "selectedKeys"
+      }
+    ]
+  }
+]

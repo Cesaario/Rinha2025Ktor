@@ -1,17 +1,17 @@
 ktor:
-    application:
-        modules:
-            - app.cesario.ApplicationKt.module
-    deployment:
-        port: "$PORT:9999"
-        healthCheckUpdater: ${IS_HEALTH_CHECK_UPDATER:true}
-    services:
-        redis:
-            host: "$REDIS_HOST:localhost"
-            port: "$REDIS_PORT:6379"
-        default_processor:
-            host: "$DEFAULT_PROCESSOR_HOST:localhost"
-            port: "$DEFAULT_PROCESSOR_PORT:8001"
-        fallback_processor:
-            host: "$FALLBACK_PROCESSOR_HOST:localhost"
-            port: "$FALLBACK_PROCESSOR_PORT:8002"
+  application:
+    modules:
+      - app.cesario.ApplicationKt.module
+  deployment:
+    port: 9999
+    healthCheckUpdater: ${IS_HEALTH_CHECK_UPDATER:true}
+  services:
+    redis:
+      host: "$REDIS_HOST:localhost"
+      port: "$REDIS_PORT:6379"
+    default_processor:
+      host: "$DEFAULT_PROCESSOR_HOST:localhost"
+      port: "$DEFAULT_PROCESSOR_PORT:8001"
+    fallback_processor:
+      host: "$FALLBACK_PROCESSOR_HOST:localhost"
+      port: "$FALLBACK_PROCESSOR_PORT:8002"

@@ -6,7 +6,7 @@ import app.cesario.dto.ServiceHealthStatus
 import java.time.OffsetDateTime
 
 object SummaryService {
-    fun registerProcessedPayment(processedPayment: ProcessedPayment){
+    fun registerProcessedPayment(processedPayment: ProcessedPayment) {
         RedisService.savePaymentToSortedSet(processedPayment)
 
         val healthStatus = ServiceHealthStatus(!processedPayment.success, processedPayment.responseTime)
@@ -18,7 +18,7 @@ object SummaryService {
         val defaultSummary = PaymentSummaryForService()
         val fallbackSummary = PaymentSummaryForService()
         payments.forEach {
-            if(it.service == PaymentService.PaymentProcessorService.DEFAULT) {
+            if (it.service == PaymentService.PaymentProcessorService.DEFAULT) {
                 defaultSummary.totalRequests++
                 defaultSummary.totalAmount += it.amount
             } else if (it.service == PaymentService.PaymentProcessorService.FALLBACK) {

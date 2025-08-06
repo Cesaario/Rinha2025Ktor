@@ -4,27 +4,21 @@ import app.cesario.dto.PaymentProcessRequest
 import app.cesario.dto.PaymentRequest
 import app.cesario.dto.ProcessedPayment
 import app.cesario.dto.ServiceHealthStatus
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.engine.cio.endpoint
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.get
-import io.ktor.client.request.post
-import io.ktor.client.request.setBody
-import io.ktor.http.ContentType
-import io.ktor.http.HttpStatusCode
-import io.ktor.http.contentType
-import io.ktor.serialization.kotlinx.json.json
-import io.ktor.server.config.ApplicationConfig
-import io.ktor.util.collections.asBoolean
+import io.ktor.client.*
+import io.ktor.client.call.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.request.*
+import io.ktor.http.*
+import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.config.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import org.slf4j.LoggerFactory
 import java.time.OffsetDateTime
-import java.util.Timer
+import java.util.*
 import kotlin.concurrent.timerTask
 
 object PaymentService {
@@ -32,7 +26,7 @@ object PaymentService {
 
     private val servicesUrl = mutableMapOf<PaymentProcessorService, String>()
 
-    const val SERVICE_HEALTH_CHECK_INTERVAL = 5000L
+    const val SERVICE_HEALTH_CHECK_INTERVAL = 6000L
 
     var isUpdater = false
 
@@ -45,10 +39,12 @@ object PaymentService {
     }
 
     fun init(config: ApplicationConfig) {
-        val defaultServiceHost = config.propertyOrNull("ktor.services.default_processor.host")?.getString()!!
-        val defaultServicePort = config.propertyOrNull("ktor.services.default_processor.port")?.getString()!!
-        val fallbackServiceHost = config.propertyOrNull("ktor.services.fallback_processor.host")?.getString()!!
-        val fallbackServicePort = config.propertyOrNull("ktor.services.fallback_processor.port")?.getString()!!
+        val defaultServiceHost =
+            config.propertyOrNull("ktor.services.default_processor.host")?.getString() ?: "localhost"
+        val defaultServicePort = config.propertyOrNull("ktor.services.default_processor.port")?.getString() ?: "8001"
+        val fallbackServiceHost =
+            config.propertyOrNull("ktor.services.fallback_processor.host")?.getString() ?: "localhost"
+        val fallbackServicePort = config.propertyOrNull("ktor.services.fallback_processor.port")?.getString() ?: "8002"
         servicesUrl.put(PaymentProcessorService.DEFAULT, "http://$defaultServiceHost:$defaultServicePort")
         servicesUrl.put(PaymentProcessorService.FALLBACK, "http://$fallbackServiceHost:$fallbackServicePort")
         isUpdater = config.propertyOrNull("ktor.deployment.healthCheckUpdater")?.getString().toBoolean()
@@ -69,8 +65,6 @@ object PaymentService {
             }
             val after = System.currentTimeMillis()
             val responseTime = after - before
-
-            // log.info("Service=${service.name}, responseTime=${responseTime}, status=${response.status}")
 
             return ProcessedPayment(
                 payload.correlationId,
@@ -101,7 +95,7 @@ object PaymentService {
     suspend fun updateServiceHealthCheck() {
         var shouldUpdate = false
 
-        if(!isUpdater) {
+        if (!isUpdater) {
             PaymentRouterService.updateServiceToBeUsed()
             return
         }
@@ -120,7 +114,7 @@ object PaymentService {
                 log.error("Error updating health status for ${it.name}: ${e.message}", e)
             }
         }
-        if(shouldUpdate)
+        if (shouldUpdate)
             PaymentRouterService.updateServiceToBeUsed()
     }
 

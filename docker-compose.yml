@@ -1,8 +1,6 @@
 x-service-templates:
   backend: &backend
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ktor-native
     depends_on:
       - redis
     networks:
@@ -46,7 +44,7 @@ services:
       - DEFAULT_PROCESSOR_PORT=8080
       - FALLBACK_PROCESSOR_HOST=payment-processor-2
       - FALLBACK_PROCESSOR_PORT=8080
-      - PORT=8080
+      - PORT=9999
 
   backend-02:
     <<: *backend
@@ -60,7 +58,7 @@ services:
       - DEFAULT_PROCESSOR_PORT=8080
       - FALLBACK_PROCESSOR_HOST=payment-processor-2
       - FALLBACK_PROCESSOR_PORT=8080
-      - PORT=8080
+      - PORT=9999
 
 networks:
   backend:
