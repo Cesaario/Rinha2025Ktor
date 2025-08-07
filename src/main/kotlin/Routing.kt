@@ -9,6 +9,7 @@ import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.coroutines.launch
 import java.time.OffsetDateTime
 
 fun Application.configureRouting() {
@@ -16,9 +17,9 @@ fun Application.configureRouting() {
         post("/payments") {
             try {
                 val request = call.receive<PaymentRequest>()
-
-                QueueService.addPaymentRequestToQueue(request)
-
+                queueScope.launch {
+                    QueueService.addPaymentRequestToQueue(request)
+                }
                 call.respond(HttpStatusCode.Accepted)
             } catch (e: Exception) {
                 call.respond(HttpStatusCode.InternalServerError, "Error processing payment request: ${e.message}")

@@ -36,7 +36,8 @@ object RedisService {
         val redisHost = config.propertyOrNull("ktor.services.redis.host")?.getString() ?: "localhost"
         val redisPort = config.propertyOrNull("ktor.services.redis.port")?.getString()?.toInt() ?: 6379
 
-        log.info("Redis host: $redisHost, port: $redisPort")
+        log.info("Redis host: $redisHost")
+        log.info("Redis port: $redisPort")
 
         redisURI = RedisURI.Builder.redis(redisHost, redisPort)
             .withTimeout(Duration.ofMinutes(10))

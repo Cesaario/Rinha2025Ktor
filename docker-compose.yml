@@ -20,6 +20,11 @@ services:
     depends_on:
       - backend-01
       - backend-02
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "10MB"
 
   redis:
     image: redis:8.0.3-alpine
@@ -30,6 +35,11 @@ services:
       - "6379:6379"
     networks:
       - backend
+    deploy:
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "20MB"
     restart: unless-stopped
 
   backend-01:
@@ -45,6 +55,11 @@ services:
       - FALLBACK_PROCESSOR_HOST=payment-processor-2
       - FALLBACK_PROCESSOR_PORT=8080
       - PORT=9999
+    deploy:
+      resources:
+        limits:
+          cpus: "0.6"
+          memory: "160MB"
 
   backend-02:
     <<: *backend
@@ -59,6 +74,11 @@ services:
       - FALLBACK_PROCESSOR_HOST=payment-processor-2
       - FALLBACK_PROCESSOR_PORT=8080
       - PORT=9999
+    deploy:
+      resources:
+        limits:
+          cpus: "0.6"
+          memory: "160MB"
 
 networks:
   backend:

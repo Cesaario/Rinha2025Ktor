@@ -12,9 +12,14 @@ import io.ktor.server.plugins.contentnegotiation.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import java.util.concurrent.Executors
 
+val processorJob = SupervisorJob()
+val processorScope = CoroutineScope(Dispatchers.IO + processorJob)
+val queueScope = CoroutineScope(Executors.newFixedThreadPool(8).asCoroutineDispatcher() + processorJob)
 
 fun main(args: Array<String>) {
     embeddedServer(CIO, port = 9999, host = "0.0.0.0", module = Application::module)
@@ -22,10 +27,7 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
-    log.info("Starting Ktor application :D")
-
-    val processorJob = SupervisorJob()
-    val processorScope = CoroutineScope(Dispatchers.IO + processorJob)
+    log.info("Starting Native Ktor application :D")
 
     monitor.subscribe(ApplicationStarted) {
         repeat(10) {

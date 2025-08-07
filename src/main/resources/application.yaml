@@ -4,7 +4,7 @@ ktor:
       - app.cesario.ApplicationKt.module
   deployment:
     port: 9999
-    healthCheckUpdater: ${IS_HEALTH_CHECK_UPDATER:true}
+    healthCheckUpdater: "$IS_HEALTH_CHECK_UPDATER:true"
   services:
     redis:
       host: "$REDIS_HOST:localhost"

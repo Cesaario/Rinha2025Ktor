@@ -49,7 +49,9 @@ object PaymentService {
         servicesUrl.put(PaymentProcessorService.FALLBACK, "http://$fallbackServiceHost:$fallbackServicePort")
         isUpdater = config.propertyOrNull("ktor.deployment.healthCheckUpdater")?.getString().toBoolean()
 
-        log.info("Default: ${servicesUrl[PaymentProcessorService.DEFAULT]}, Fallback: ${servicesUrl[PaymentProcessorService.FALLBACK]}")
+        log.info("Default Processor: ${servicesUrl[PaymentProcessorService.DEFAULT]}")
+        log.info("Fallback Processor: ${servicesUrl[PaymentProcessorService.FALLBACK]}")
+        log.info("isUpdater: $isUpdater")
     }
 
     suspend fun processPayment(paymentRequest: PaymentRequest, service: PaymentProcessorService): ProcessedPayment? {
@@ -93,12 +95,8 @@ object PaymentService {
     }
 
     suspend fun updateServiceHealthCheck() {
-        var shouldUpdate = false
-
-        if (!isUpdater) {
-            PaymentRouterService.updateServiceToBeUsed()
+        if (!isUpdater)
             return
-        }
 
         PaymentProcessorService.entries.forEach {
             try {
@@ -109,13 +107,10 @@ object PaymentService {
                     contentType(ContentType.Application.Json)
                 }.body<ServiceHealthStatus>()
                 RedisService.updateProcessorHealthStatus(result, it)
-                shouldUpdate = true
             } catch (e: Exception) {
                 log.error("Error updating health status for ${it.name}: ${e.message}", e)
             }
         }
-        if (shouldUpdate)
-            PaymentRouterService.updateServiceToBeUsed()
     }
 
     enum class PaymentProcessorService {
