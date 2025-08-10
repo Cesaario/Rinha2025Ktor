@@ -1,6 +1,6 @@
 x-service-templates:
   backend: &backend
-    image: ktor-native
+    image: cesario/ktor-native:latest
     depends_on:
       - redis
     networks:
