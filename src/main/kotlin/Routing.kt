@@ -17,9 +17,7 @@ fun Application.configureRouting() {
         post("/payments") {
             try {
                 val request = call.receive<PaymentRequest>()
-                queueScope.launch {
-                    QueueService.addPaymentRequestToQueue(request)
-                }
+                QueueService.addPaymentRequestToQueue(request)
                 call.respond(HttpStatusCode.Accepted)
             } catch (e: Exception) {
                 call.respond(HttpStatusCode.InternalServerError, "Error processing payment request: ${e.message}")

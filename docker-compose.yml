@@ -1,5 +1,6 @@
 x-service-templates:
   backend: &backend
+    #image: ktor-jar
     image: ktor-native
     depends_on:
       - redis

@@ -19,7 +19,6 @@ import java.util.concurrent.Executors
 
 val processorJob = SupervisorJob()
 val processorScope = CoroutineScope(Dispatchers.IO + processorJob)
-val queueScope = CoroutineScope(Executors.newFixedThreadPool(8).asCoroutineDispatcher() + processorJob)
 
 fun main(args: Array<String>) {
     embeddedServer(CIO, port = 9999, host = "0.0.0.0", module = Application::module)
@@ -44,9 +43,10 @@ fun Application.module() {
 
     install(ContentNegotiation) {
         json(Json {
-            prettyPrint = true
+            prettyPrint = false
             isLenient = true
             encodeDefaults = true
+            ignoreUnknownKeys = true
         })
     }
 

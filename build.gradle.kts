@@ -49,16 +49,23 @@ graalvmNative {
             buildArgs.add("--trace-class-initialization=kotlin.DeprecationLevel")
             buildArgs.add("--strict-image-heap")
             buildArgs.add("--enable-monitoring=jfr")
+            buildArgs.add("--gc=parallel")
+            buildArgs.add("-O2")
             runtimeArgs.add("--gc=parallel")
-            buildArgs.addAll(listOf(
-                "-H:+ReportExceptionStackTraces",
-                "-H:+PrintClassInitialization",
-                "--install-exit-handlers",
-                "--native-image-info",
-                "-R:MaxHeapSize=256m",
-                "-Dkotlinx.coroutines.debug=on",
-                "-Dkotlinx.coroutines.default.parallelism=8"
-            ))
+
+//            buildArgs.addAll(listOf(
+//                "-H:+ReportExceptionStackTraces",
+//                "-H:+PrintClassInitialization",
+//                "--install-exit-handlers",
+//                "--native-image-info",
+//                "-R:MaxHeapSize=256m",
+//                "-Dkotlinx.coroutines.debug=on",
+//                "-Dkotlinx.coroutines.default.parallelism=8",
+//                "-H:+InlineBeforeAnalysis",
+//                "-H:+ReportUnsupportedElementsAtRuntime",
+//                "-H:+ReportExceptionStackTraces",
+//                "--no-fallback",
+//            ))
 
             imageName.set("rinhabackend")
         }
